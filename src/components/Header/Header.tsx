@@ -6,7 +6,7 @@ export const Header = () => {
     <header
       className={styles.header}
     >
-      El header p
+      <h1>Maboroshi</h1>
     </header>
   )
 }
