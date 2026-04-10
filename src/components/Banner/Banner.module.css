@@ -1,0 +1,68 @@
+.banner {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("https://images.unsplash.com/photo-1497032205916-ac775f0649ae");
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+  color: white;
+}
+
+/* overlay oscuro */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ESTE ES EL BLOQUE CENTRAL 🔥 */
+.card {
+  position: relative;
+  z-index: 2;
+
+  width: 280px;
+  text-align: center;
+}
+
+/* imagen */
+.card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+/* textos */
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card p {
+  color: #ccc;
+}
+
+.card span {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* botón */
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+  color: black;
+  border-radius: 50%;
+}
