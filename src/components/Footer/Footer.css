@@ -1,0 +1,38 @@
+.footer {
+  width: 100vw;
+  background-color: #000;
+  border-top: 1px solid #222;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: small;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-left a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.footer-left a:hover {
+  color: #fff;
+}
+
+.footer-right {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+}
