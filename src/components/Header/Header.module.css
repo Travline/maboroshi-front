@@ -11,14 +11,14 @@ header {
   justify-content: center;
   align-items: center;
   height: 5rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 2rem;
+  height: 3rem;
   gap: 4rem;
 }
 
@@ -32,10 +32,10 @@ nav a:hover {
 }
 
 .logo {
-  height: 2rem;
+  height: 3rem;
 }
 
 .logo img {
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
 }
