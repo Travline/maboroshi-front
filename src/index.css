@@ -20,6 +20,7 @@
   font-size: var(--base-font-size);
   margin: 0;
   padding: 0;
+  color: #ffffff;
 }
 
 html {
@@ -38,12 +39,12 @@ html {
 }
 
 body {
+  background-color: #000000;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* Esto corta cualquier desborde horizontal accidental */
-  background-color: var(--main-color);
+  overflow-x: hidden;
 }
 
 a {
