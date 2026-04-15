@@ -3,10 +3,16 @@ import styles from "./Header.module.css"
 
 export const Header = () => {
   return (
-    <header
-      className={styles.header}
-    >
-      <h1>Maboroshi</h1>
+    <header>
+      <nav>
+        <a href="#">GENEROS</a>
+        <a href="#">VINYL</a>
+        <a href="#" className={styles.logo}>
+          <img src="/assets/logo.png" alt="Logo Maboroshi" />
+        </a>
+        <a href="#">CD</a>
+        <a href="#">PRE - VENTA</a>
+      </nav>
     </header>
   )
 }
