@@ -1,17 +1,18 @@
 import styles from "./Header.module.css"
+import { Link } from "react-router-dom"
 // Usando CSS Modules
 
 export const Header = () => {
   return (
     <header>
       <nav>
-        <a href="#">GENEROS</a>
-        <a href="#">VINYL</a>
-        <a href="#" className={styles.logo}>
+        <Link to={"#"}>GENEROS</Link>
+        <Link to={"#"}>VINYL</Link>
+        <Link to={"/"} className={styles.logo}>
           <img src="/assets/logo.png" alt="Logo Maboroshi" />
-        </a>
-        <a href="#">CD</a>
-        <a href="#">PRE - VENTA</a>
+        </Link>
+        <Link to={"#"}>CD</Link>
+        <Link to={"#"}>PRE - VENTA</Link>
       </nav>
     </header>
   )

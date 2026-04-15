@@ -1,0 +1,1 @@
+Acá irian los componentes que en Astro van dentro del /pages, estos tienen el contenido unico de las paginas, si usan carpeta dentro solo irán componentes que no sean reutilizables, si usan componentes reutilizables como cards o botones van dentro de components.

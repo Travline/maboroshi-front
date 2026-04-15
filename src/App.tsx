@@ -1,12 +1,10 @@
 import './App.css'
-import { Header } from './components/Header/Header'
 
 function App() {
 
   return (
     <>
-      <Header/>
-      <h1>oal</h1>
+      <h1>Contenido de la ruta "/"</h1>
     </>
   )
 }
