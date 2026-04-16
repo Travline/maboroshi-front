@@ -1,0 +1,23 @@
+ .Card{
+    background-color: #000000;
+    color: white;
+    width: 354px;
+    height: 443px;
+    text-align: left; 
+}
+.ImgCard{
+    width: 100%;
+    height: 365px;
+}
+.NameCard{
+    font-size: 20px;
+    font-weight: bold;
+}
+.ArtistCard{
+    font-size: 18px;
+    font-weight: bold;
+}
+.PriceCard{
+    font-size: 16px;
+    font-weight: bold;
+}
