@@ -71,3 +71,19 @@ export default defineConfig([
   },
 ])
 ```
+
+
+src/
+├── assets/            # Imágenes, SVGs, fuentes globales
+├── components/        # Componentes UI reutilizables (Button, Input, Card)
+├── config/            # Configuraciones (Firebase, Axios, variables de entorno)
+├── context/           # Context API (AuthContext, ThemeContext)
+├── hooks/             # Custom hooks globales (useAuth, useFetch)
+├── pages/             # Vistas principales (Home, Dashboard, Login)
+│   └── Dashboard/
+│       ├── components/ # Componentes exclusivos de esta página
+│       └── Dashboard.jsx
+├── services/          # Llamadas a APIs y lógica de servicios
+├── main.tsx           # Layout principal donde dentro iran las páginas
+├── utils/             # Funciones de ayuda (formateo de fechas, validaciones)
+└── App.jsx            # Punto de entrada de la app
