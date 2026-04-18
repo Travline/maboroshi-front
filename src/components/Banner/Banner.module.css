@@ -1,68 +1,68 @@
 .banner {
-  height: 80vh;
+  position: relative;
+  height: 70vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-image: url("https://images.unsplash.com/photo-1497032205916-ac775f0649ae");
   background-size: cover;
   background-position: center;
-
-  position: relative;
-  color: white;
 }
 
-/* overlay oscuro */
-.banner::before {
-  content: "";
+.overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
 }
 
-/* ESTE ES EL BLOQUE CENTRAL 🔥 */
-.card {
+.content {
   position: relative;
   z-index: 2;
-
-  width: 280px;
   text-align: center;
 }
 
-/* imagen */
-.card img {
-  width: 200px;
-  height: 200px;
+.content img {
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
-/* textos */
-.card h2 {
+.content h2 {
+  font-size: 17px;
+  letter-spacing: 4px;
+  font-weight: 300;
+  opacity: 0.8; 
+}
+
+.content h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+.content p {
   font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  color: #aaa;
+  margin-top: 6px;
 }
 
-.card h3 {
-  margin: 10px 0;
-}
-
-.card p {
-  color: #ccc;
-}
-
-.card span {
+.content span {
   display: block;
-  margin: 10px 0;
-  font-weight: bold;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600; 
 }
 
 /* botón */
-.card button {
-  margin-top: 10px;
-  padding: 10px;
-  background: white;
-  color: black;
-  border-radius: 50%;
+.content button {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 300;
 }
