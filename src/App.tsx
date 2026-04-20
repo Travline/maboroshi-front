@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>Contenido de la ruta "/"</h1>
+      
       <div>
         <Collection products={cards} />
       </div>
