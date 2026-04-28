@@ -1,17 +1,68 @@
-.Collection{
+.Slider{
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 32.875rem;
-    
 }
+
 .Tittle{
     display: flex;
+    align-items: baseline;
+    padding-bottom: 1rem;
+    padding-top: .5rem;
+    gap: 1rem;
+    margin-left: 1.5625rem;
 
 }
+
+.Tittle h1{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.Tittle a{
+    font-size: .875rem;
+}
+
+.ProductsContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .Products{
     display: flex;
     gap: 1.5625rem;
-    padding-left: 1.5625rem;
-    padding-right: 1.5625rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: 1.5625rem;
+    
+}
+.Products::-webkit-scrollbar {
+    display: none;
+}
+
+.Arrow{
+    display: flex;
+    width: 100%;
+    justify-content:space-between ;
+    padding-inline: 1.5625rem;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.LeftArrow, .RightArrow{
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
 }
