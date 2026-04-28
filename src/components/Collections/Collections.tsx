@@ -4,13 +4,14 @@ import type { Product } from "../../models/Card";
 
 interface props {
     products: Product[];
+    title: string;
 }
 
-export const Collection = ({ products }: props) => {
+export const Collection = ({ products, title }: props & { title: string }) => {
     return (
         <div className={styles.Slider}>
             <div className={styles.Tittle}>
-                <h1>MABOROSHI COLLECTIONS</h1>
+                <h1>{title}</h1>
                 <a href="">Ver todo &gt; </a>
             </div>
 

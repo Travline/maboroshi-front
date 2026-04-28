@@ -13,7 +13,7 @@ export const Cards = ({ product }: props) => {
                 <div className={styles.InfoCard}>
                     <h3>{product.name}</h3>
                     <h2>{product.artist}</h2>
-                    <h3 className={styles.PriceCard}>S/.{product.price.toFixed(2)}</h3>
+                    <h3 className={styles.PriceCard}>S/.{Number(product.price ?? 0).toFixed(2)}</h3>
                 </div>
             </a>
         </div>

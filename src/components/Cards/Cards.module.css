@@ -27,6 +27,7 @@
 .ImgCard{
     width: 100%;
     min-height: 22.375rem;
+    max-height: 22.375rem;
 }
 .InfoCard{
     display: flex;
