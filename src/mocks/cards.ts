@@ -34,9 +34,17 @@ export const cards: Product[] = [
   
   {
     id: "5",
-    name: "$AD BOYZ 4 LIFE II",
-    artist: "Junior H",
-    image: "https://i.scdn.co/image/ab67616d0000b273ef88ad49166e31598ff7d4d0",
+    name: "POR CESÁREA",
+    artist: "Dillom",
+    image: "https://i.scdn.co/image/ab67616d0000b27378d066acf66eb772239cca78",
+    price: 19.99
+  },
+    
+  {
+    id: "6",
+    name: "UN VERANO SIN TI",
+    artist: "Bad Bunny",
+    image: "https://i.scdn.co/image/ab67616d0000b27349d694203245f241a1bcaa72",
     price: 19.99
   },
 ]
