@@ -10,9 +10,11 @@ export const Cards = ({ product }: props) => {
         <div className={styles.Card}>
             <a href="">
                 <img className={styles.ImgCard} src={product.image} alt="Loading..." />
-                <h3 className={styles.NameCard}>{product.name}</h3>
-                <h3 className={styles.ArtistCard}>{product.artist}</h3>
-                <h3 className={styles.PriceCard}>S/.{product.price.toFixed(2)}</h3>
+                <div className={styles.InfoCard}>
+                    <h3>{product.name}</h3>
+                    <h2>{product.artist}</h2>
+                    <h3 className={styles.PriceCard}>S/.{product.price.toFixed(2)}</h3>
+                </div>
             </a>
         </div>
     )
