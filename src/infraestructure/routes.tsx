@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainLayout } from './layouts/MainLayout.tsx'
-import App from './App.tsx'
-import { Oal } from './pages/Oal.tsx'
+import { MainLayout } from '../presentation/layouts/MainLayout.tsx'
+import App from '../App.tsx'
+import { Oal } from '../presentation/pages/Oal.tsx'
 
 export const router = createBrowserRouter([
   {
