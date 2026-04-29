@@ -1,0 +1,74 @@
+.Slider{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 32.875rem;
+    margin-block: 2rem;
+}
+
+.Tittle{
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 1rem;
+    padding-top: .5rem;
+    gap: 1rem;
+    margin-left: 1.5625rem;
+
+}
+
+.Tittle h1{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.Tittle a{
+    font-size: .875rem;
+}
+
+.ProductsContainer{
+    position: relative;
+    width: 100%;
+    min-height: 27.125rem;
+}
+
+.Products{
+    display: flex;
+    gap: 1.5625rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: 1.5625rem;
+    
+}
+.Products::-webkit-scrollbar {
+    display: none;
+}
+
+.Arrow{
+    display: flex;
+    width: 100%;
+    justify-content:space-between ;
+    padding-inline: 1.5625rem;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .Arrow{
+        display: none;
+    }
+}
+
+.LeftArrow, .RightArrow{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: none;
+    width: 3.125rem;
+    height: 4.0625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+}
