@@ -1,0 +1,50 @@
+ .Card{
+    background-color: #000000;
+    color: white;
+    min-width: calc((100% - 6.25rem )/5);
+    min-height: 27.125rem;
+    text-align: left;
+
+}
+@media (max-width: 1600px){
+   .Card{
+      min-width: calc((100% - 4.6875rem)/4);
+   }
+}
+
+@media (max-width: 1200px){
+   .Card{
+      min-width: calc((100% - 3.125rem)/3);
+   }
+}
+
+@media (max-width: 768px){
+   .Card{
+      min-width: calc((100% - 1.5625rem)/2);
+   }
+}
+
+.ImgCard{
+    width: 100%;
+    min-height: 22.375rem;
+    max-height: 22.375rem;
+}
+.InfoCard{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: .5625rem;
+}
+
+.InfoCard h3{
+    font-size: 1rem;
+}
+
+.InfoCard h2{
+    font-size: .875rem;
+}
+
+.PriceCard{
+    font-size: 1rem;
+    font-weight: bold;
+}
