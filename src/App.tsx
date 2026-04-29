@@ -1,11 +1,11 @@
 import './App.css'
-import { Collection } from './components/Collections/Collections'
+import { Collection } from './presentation/components/Collections/Collections'
 import { useState, useEffect } from 'react'
-import { getPicks, getVinylCollections } from './mocks/cards'
+import { getPicks, getVinylCollections } from './infraestructure/mocks/cards'
 import type { Product } from "./models/Card"
-import { Header } from './components/Header/Header'
-import { Banner } from './components/Banner/Banner'
-import Footer from './components/Footer/Footer'
+import { Header } from './presentation/components/Header/Header'
+import { Banner } from './presentation/components/Banner/Banner'
+import Footer from './presentation/components/Footer/Footer'
 
 function App() {
   const [picks, setPicks] = useState<Product[]>([]);
