@@ -17,5 +17,6 @@ export const Cards = ({ product }: props) => {
                 </div>
             </a>
         </div>
+        
     )
 }

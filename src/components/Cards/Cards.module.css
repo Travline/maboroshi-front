@@ -24,6 +24,12 @@
    }
 }
 
+@media (max-width: 480px){
+   .Card{
+      min-width: calc((100%));
+   }
+}
+
 .ImgCard{
     width: 100%;
     min-height: 22.375rem;
