@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-height: 32.875rem;
     margin-block: 2rem;
 }
 
@@ -17,18 +16,18 @@
 }
 
 .Tittle h1{
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .Tittle a{
-    font-size: .875rem;
+    font-size: .75rem;
+    font-family: "Doto", sans-serif;
 }
 
 .ProductsContainer{
     position: relative;
     width: 100%;
-    min-height: 27.125rem;
 }
 
 .Products{
@@ -45,12 +44,12 @@
 
 .Arrow{
     display: flex;
+    top:11.1875rem;
     width: 100%;
+    left: 0;
+    transform: translateY(-50%);
     justify-content:space-between ;
-    padding-inline: 1.5625rem;
-    align-items: center;
     position: absolute;
-    inset: 0;
     z-index: 10;
     pointer-events: none;
 }
@@ -62,8 +61,7 @@
 }
 
 .LeftArrow, .RightArrow{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: none;
+    background-color: #ffffff;
     width: 3.125rem;
     height: 4.0625rem;
     display: flex;
@@ -71,4 +69,8 @@
     justify-content: center;
     cursor: pointer;
     pointer-events: auto;
+}
+
+.LeftArrow svg, .RightArrow svg{
+    stroke: black;
 }

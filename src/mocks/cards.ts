@@ -50,6 +50,14 @@ export const picks: Product[] = [
   
   {
     id: "5",
+    name: "GRACE",
+    artist: "Jeff Buckley",
+    image: "https://i.scdn.co/image/ab67616d0000b273afc2d1d2c8703a10aeded0af",
+    price: 19.99
+  },
+
+  {
+    id: "6",
     name: "POR CESÁREA",
     artist: "Dillom",
     image: "https://i.scdn.co/image/ab67616d0000b27378d066acf66eb772239cca78",
@@ -57,18 +65,10 @@ export const picks: Product[] = [
   },
     
   {
-    id: "6",
+    id: "7",
     name: "UN VERANO SIN TI",
     artist: "Bad Bunny",
     image: "https://i.scdn.co/image/ab67616d0000b27349d694203245f241a1bcaa72",
-    price: 19.99
-  },
-    
-  {
-    id: "7",
-    name: "GRACE",
-    artist: "Jeff Buckley",
-    image: "https://i.scdn.co/image/ab67616d0000b273afc2d1d2c8703a10aeded0af",
     price: 19.99
   },
       
