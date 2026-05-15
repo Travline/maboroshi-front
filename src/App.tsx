@@ -1,5 +1,5 @@
 import './App.css'
-import { Collection } from './components/Collections/Collections'
+import { Slider } from './components/Sliders/Sliders'
 import { useState, useEffect } from 'react'
 import { getPicks, getVinylCollections } from './mocks/cards'
 import type { Product } from "./models/Card"
@@ -29,9 +29,9 @@ function App() {
       <Header />
       <main>
         <div>
-        <Collection title="MABOROSHI COLLECTIONS" products={picks} />
+        <Slider title="MABOROSHI COLLECTIONS" products={picks} />
 
-        <Collection title="MABOROSHI PICKS" products={vinylCollections} />
+        <Slider title="MABOROSHI PICKS" products={vinylCollections} />
 
       </div>
         <Banner
@@ -42,9 +42,9 @@ function App() {
           date="Released February 00, 0000"
         />
         <div>
-        <Collection title="MABOROSHI COLLECTIONS" products={picks} />
+        <Slider title="MABOROSHI COLLECTIONS" products={picks} />
 
-        <Collection title="MABOROSHI PICKS" products={vinylCollections} />
+        <Slider title="MABOROSHI PICKS" products={vinylCollections} />
 
       </div>
       </main>

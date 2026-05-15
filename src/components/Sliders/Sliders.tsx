@@ -1,5 +1,5 @@
 import { Cards } from '../Cards/Cards';
-import styles from "./Collections.module.css"
+import styles from "./Sliders.module.css"
 import type { Product } from "../../models/Card";
 import { useRef } from 'react';
 
@@ -8,7 +8,7 @@ interface props {
     title: string;
 }
 
-export const Collection = ({ products, title }: props & { title: string }) => {
+export const Slider = ({ products, title }: props & { title: string }) => {
 
     const Slider=useRef<HTMLDivElement>(null);
     const cards= 5; //cantidad de cards mostradas
