@@ -42,29 +42,37 @@
     display: none;
 }
 
-.Arrow{
+
+.RightContainer, .LeftContainer{
     display: flex;
-    top:11.1875rem;
-    width: 100%;
-    left: 0;
-    transform: translateY(-50%);
-    justify-content:space-between ;
+    width: 3.125rem;
+    height: 100%;
     position: absolute;
     z-index: 10;
+    align-items: flex-start;
     pointer-events: none;
+}
+.RightContainer{
+    right: 0;
+    justify-content: flex-end;
+}
+.LeftContainer{
+    left: 0;
+    justify-content: flex-start;
 }
 
 @media (hover: none) and (pointer: coarse) {
-    .Arrow{
+    .RightContainer, .LeftContainer{
         display: none;
     }
 }
 
 .LeftArrow, .RightArrow{
     background-color: #ffffff;
+    margin-top: calc((22.375rem - 4.0625rem)/2);
     width: 3.125rem;
     height: 4.0625rem;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -73,4 +81,9 @@
 
 .LeftArrow svg, .RightArrow svg{
     stroke: black;
+}
+.ProductsContainer:hover{
+    .LeftArrow, .RightArrow{
+        display: block;
+    }
 }
