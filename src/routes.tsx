@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout.tsx'
 import App from './App.tsx'
 import { Oal } from './pages/Oal.tsx'
+import { NotFound } from './components/404 ERROR/404 ERROR.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <App /> },
       { path: "/oal", element: <Oal /> },
-      { path: "*", element: <Oal /> }, //Este para el 404 not found
+      { path: "*", element: <NotFound /> },
     ]
   }
 ])
