@@ -1,0 +1,229 @@
+.page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/WhatsApp Image 2026-05-20 at 12.44.51 PM.jpeg');
+ background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.box {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: none;
+  width: 520px;
+  max-width: 88vw;
+  padding: 2rem 2.25rem 2.5rem;
+}
+.title {
+  font-family: "Doto", sans-serif;
+  text-align: center;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  border-bottom: 0.1rem solid #ffffff;
+  padding-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: none;
+}
+
+.tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 0.15rem solid transparent;
+  color: #ffffff;
+  font-family: "Doto", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0em;
+  padding: 0.45rem 0;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-bottom: 0.15rem solid #ffffff;
+}
+
+.tab:hover:not(.active) {
+  color: #aaaaaa;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: "Doto", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0em;
+  color: #ffffff;
+}
+
+.input {
+  background-color: #000000;
+  border: 0.1rem solid #2B2B2B;
+  color: #ffffff;
+  padding: 0.6rem 0.7rem;
+  font-family: "Doto", sans-serif;
+  font-size: 0.8rem;
+  outline: none;
+  width: 100%;
+  caret-color: #ffffff;
+}
+.input:focus {
+  background-color: #0d0d0d;
+}
+
+.input::placeholder {
+  color: #333333;
+}
+
+.hint {
+  font-family: "Doto", sans-serif;
+  font-size: 0.55rem;
+  color: #ffffff;
+  letter-spacing: 0em;
+  line-height: 1.5;
+}
+
+.forgotLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999999;
+  font-family: "Doto", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0em;
+  text-align: right;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  transition: color 0.2s;
+  padding: 0;
+  margin-top: -0.4rem;
+}
+
+.forgotLink:hover { color: #ffffff; }
+
+.error {
+  font-family: "Doto", sans-serif;
+  font-size: 0.65rem;
+  color: #ff4444;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.submitBtn {
+  margin-top: 0.1rem;
+  background-color: #000000;
+  border: none;
+  color: #ffffff;
+  font-family: "Doto", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0em;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.submitBtn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.successMsg {
+  font-family: "Doto", sans-serif;
+  font-size: 0.7rem;
+  color: #66ff88;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999999;
+  font-family: "Doto", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0em;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  transition: color 0.2s;
+  padding: 0;
+  margin-top: 0.25rem;
+}
+
+.switchLink:hover { color: #ffffff; }
+.loginFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 0;
+  z-index: 2;
+}
+
+.loginFooterBar {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  border: 0.1rem solid #2B2B2B;
+  padding: 1rem 1.25rem;
+}
+
+.loginSquare {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #ffffff;
+}
+
+.loginExplora {
+  font-family: "Doto", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.loginDots {
+  font-family: "Doto", sans-serif;
+  font-size: 0.75rem;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+}
