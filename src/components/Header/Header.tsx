@@ -49,8 +49,6 @@ const SiteHeaderInner = () => (
 )
 
 export const Header = () => {
-  console.log("Header renderizado");
-
   return (
     <header id="masthead" className={styles.siteHeader}>
       <SiteHeaderInner />
