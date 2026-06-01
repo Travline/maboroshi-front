@@ -31,7 +31,7 @@
   text-align: center;
   letter-spacing: 0em;
   word-spacing: 0em;
-  font-size: 1.4rem;
+  font-size: var(--large-font-size);
   font-weight: 700;
   margin-bottom: 1.25rem;
   border-bottom: 0.1rem solid #ffffff;
@@ -52,7 +52,7 @@
   border-bottom: 0.15rem solid transparent;
   color: #ffffff;
   font-family: "Doto", sans-serif;
-  font-size: 0.72rem;
+  font-size: calc(var(--medium-font-size) - 0.1rem);
   letter-spacing: 0em;
   padding: 0.45rem 0;
   cursor: pointer;
@@ -81,7 +81,7 @@
 
 .label {
   font-family: "Doto", sans-serif;
-  font-size: 0.65rem;
+  font-size: var(--tiny-font-size);
   letter-spacing: 0em;
   color: #ffffff;
 }
@@ -92,7 +92,6 @@
   color: #ffffff;
   padding: 0.6rem 0.7rem;
   font-family: "Doto", sans-serif;
-  font-size: 0.8rem;
   outline: none;
   width: 100%;
   caret-color: #ffffff;
@@ -107,7 +106,7 @@
 
 .hint {
   font-family: "Doto", sans-serif;
-  font-size: 0.55rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   color: #ffffff;
   letter-spacing: 0em;
   line-height: 1.5;
@@ -119,7 +118,7 @@
   cursor: pointer;
   color: #999999;
   font-family: "Doto", sans-serif;
-  font-size: 0.65rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   letter-spacing: 0em;
   text-align: right;
   text-decoration: underline;
@@ -133,7 +132,7 @@
 
 .error {
   font-family: "Doto", sans-serif;
-  font-size: 0.65rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   color: #ff4444;
   letter-spacing: 0em;
   text-align: center;
@@ -145,7 +144,6 @@
   border: none;
   color: #ffffff;
   font-family: "Doto", sans-serif;
-  font-size: 0.8rem;
   letter-spacing: 0em;
   padding: 0.7rem 1rem;
   cursor: pointer;
@@ -163,7 +161,7 @@
 
 .successMsg {
   font-family: "Doto", sans-serif;
-  font-size: 0.7rem;
+  font-size: var(--tiny-font-size);
   color: #66ff88;
   letter-spacing: 0em;
   text-align: center;
@@ -175,7 +173,7 @@
   cursor: pointer;
   color: #999999;
   font-family: "Doto", sans-serif;
-  font-size: 0.65rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   letter-spacing: 0em;
   text-align: center;
   text-decoration: underline;
@@ -216,14 +214,14 @@
 
 .loginExplora {
   font-family: "Doto", sans-serif;
-  font-size: 0.75rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   letter-spacing: 0.08em;
   color: #ffffff;
 }
 
 .loginDots {
   font-family: "Doto", sans-serif;
-  font-size: 0.75rem;
+  font-size: calc(var(--tiny-font-size) - 0.1rem);
   color: #ffffff;
   letter-spacing: 0.1em;
 }

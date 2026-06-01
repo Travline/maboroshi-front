@@ -26,9 +26,6 @@ function App() {
 
   return (
   <>
-    <Header />
-    <ToolbarModal />
-
     <main>
       <div>
         <Slider title="MABOROSHI COLLECTIONS" products={picks} />

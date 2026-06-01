@@ -4,7 +4,7 @@ import styles from "./AuthModal.module.css";
 
 type View = "login" | "register" | "forgot";
 
-const BASE_URL = "http://localhost:3000/v1";
+const BASE_URL = "https://maboroshi-back.onrender.com/v1";
 
 export const AuthModal = () => {
   const navigate = useNavigate();
