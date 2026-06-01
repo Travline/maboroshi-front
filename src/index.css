@@ -116,7 +116,7 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light-mode) {
-  --background:#010101;
+  --background:#7e0000;
   --foreground: #fff;
   --border: #2b2b2b
   }
