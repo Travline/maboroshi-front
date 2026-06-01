@@ -23,10 +23,10 @@ function App() {
   }, []);
 
   return (
-  <>
-    <main>
-      <div>
-        <Slider title="MABOROSHI COLLECTIONS" products={picks} />
+    <>
+      <main>
+        <div>
+          <Slider title="MABOROSHI COLLECTIONS" products={picks} />
 
         <Slider title="MABOROSHI PICKS" products={vinylCollections} />
       </div>
@@ -36,11 +36,10 @@ function App() {
       <div>
         <Slider title="MABOROSHI COLLECTIONS" products={picks} />
 
-        <Slider title="MABOROSHI PICKS" products={vinylCollections} />
-      </div>
-    </main>
-  </>
-)
+        </div>
+      </main>
+    </>
+  )
 }
 
 export default App
