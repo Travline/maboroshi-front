@@ -1,31 +1,37 @@
 import React from 'react';
 import './Footer.css';
-import logoPng from '/assets/Footer.png'; 
+import logoPng from '/assets/Footer.png';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
+
         <div className="footer-topSection">
-          
+
           <div className="footer-brandGroup">
             <div className="footer-logoContainer">
-              <img 
-                src={logoPng} 
-                alt="Maboroshi Pixel Logo" 
-                className="footer-logo" 
+              <img
+                src={logoPng}
+                alt="Maboroshi Pixel Logo"
+                className="footer-logo"
               />
             </div>
 
             <div className="footer-textGroup">
-              <h2 className="footer-title">Maboroshi</h2>      
+              <h2 className="footer-title">Maboroshi</h2>
               <nav>
                 <ul className="footer-navLinks">
                   <li><a href="#instagram">Instagram</a></li>
                   <li><a href="#x">X</a></li>
                   <li><a href="#spotify">Spotify</a></li>
                   <li><a href="#contacto">Contacto</a></li>
+                  <li>
+                    <Link to="/libro-reclamaciones">
+                      Libro de Reclamaciones
+                    </Link>
+                  </li>
                   <li><a href="#terminos">Términos</a></li>
                 </ul>
               </nav>

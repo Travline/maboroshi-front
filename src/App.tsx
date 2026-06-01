@@ -3,8 +3,6 @@ import { Slider } from './components/Sliders/Sliders'
 import { useState, useEffect } from 'react'
 import { getPicks, getVinylCollections } from './mocks/cards'
 import type { Product } from "./models/Card"
-import { Header } from './components/Header/Header'
-import Footer from './components/Footer/Footer'
 import { Collections } from './components/Collections/Collections'
 
 function App() {
@@ -26,7 +24,6 @@ function App() {
 
   return (
     <>
-      <Header />
       <main>
         <div>
           <Slider title="MABOROSHI COLLECTIONS" products={picks} />
@@ -42,7 +39,6 @@ function App() {
 
         </div>
       </main>
-      <Footer />
     </>
   )
 }
