@@ -3,9 +3,9 @@ import { Slider } from './components/Sliders/Sliders'
 import { useState, useEffect } from 'react'
 import { getPicks, getVinylCollections } from './mocks/cards'
 import type { Product } from "./models/Card"
-import { Header } from './components/Header/Header'
-import Footer from './components/Footer/Footer'
 import { Collections } from './components/Collections/Collections'
+import { ToolbarModal } from './components/ToolbarModal/ToolbarModal'
+import { Header } from './components/Header/Header'
 
 function App() {
   const [picks, setPicks] = useState<Product[]>([]);
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const loadData = async () => {
       const picksData = await getPicks();
-      const vinylData = await getVinylCollections();
+      const vinylData = await getVinylCollections();  
 
       setPicks(picksData);
       setVinylCollections(vinylData);
@@ -25,26 +25,27 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header />
-      <main>
-        <div>
-          <Slider title="MABOROSHI COLLECTIONS" products={picks} />
+  <>
+    <Header />
+    <ToolbarModal />
 
-          <Slider title="MABOROSHI PICKS" products={vinylCollections} />
+    <main>
+      <div>
+        <Slider title="MABOROSHI COLLECTIONS" products={picks} />
 
-        </div>
-        <Collections />
-        <div>
-          <Slider title="MABOROSHI COLLECTIONS" products={picks} />
+        <Slider title="MABOROSHI PICKS" products={vinylCollections} />
+      </div>
 
-          <Slider title="MABOROSHI PICKS" products={vinylCollections} />
+      <Collections />
 
-        </div>
-      </main>
-      <Footer />
-    </>
-  )
+      <div>
+        <Slider title="MABOROSHI COLLECTIONS" products={picks} />
+
+        <Slider title="MABOROSHI PICKS" products={vinylCollections} />
+      </div>
+    </main>
+  </>
+)
 }
 
 export default App
