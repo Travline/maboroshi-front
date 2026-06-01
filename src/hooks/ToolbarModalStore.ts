@@ -7,7 +7,7 @@ type ToolbarModalStore = {
 } 
 
 export const useToolbarModalStore = create<ToolbarModalStore>((set) => ({
-  isOpened: true,
+  isOpened: false,
   open: () => set((state) => (state.isOpened ? {} : {isOpened: true})),
   close: () => set((state) => (!state.isOpened ? {} : {isOpened: false})),
 }))
