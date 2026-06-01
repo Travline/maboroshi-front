@@ -6,18 +6,24 @@ import type { Product } from "./models/Card"
 import { Header } from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import { Collections } from './components/Collections/Collections'
+import { ArtistCard } from './components/Artist/Artist'
+import {getArtist } from './mocks/artist'
+import type { Artist } from './models/Artist'
 
 function App() {
   const [picks, setPicks] = useState<Product[]>([]);
   const [vinylCollections, setVinylCollections] = useState<Product[]>([]);
+  const [artist, setArtist] = useState<Artist[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
       const picksData = await getPicks();
       const vinylData = await getVinylCollections();
+      const artistsData = await getArtist();
 
       setPicks(picksData);
       setVinylCollections(vinylData);
+      setArtist(artistsData);
     }
 
     loadData();
@@ -40,6 +46,9 @@ function App() {
 
           <Slider title="MABOROSHI PICKS" products={vinylCollections} />
 
+        </div>
+        <div>
+          <ArtistCard artist={artist} />
         </div>
       </main>
       <Footer />
