@@ -13,7 +13,6 @@ export const router = createBrowserRouter([
       { path: "/", element: <App /> },
       { path: "/login", element: <AuthModal /> },
       { path: "/oal", element: <Oal /> },
-      { path: "*", element: <Oal /> },
       { path: "*", element: <NotFound /> },
     ]
   }
