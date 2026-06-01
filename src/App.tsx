@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { getPicks, getVinylCollections } from './mocks/cards'
 import type { Product } from "./models/Card"
 import { Collections } from './components/Collections/Collections'
-import { ToolbarModal } from './components/ToolbarModal/ToolbarModal'
-import { Header } from './components/Header/Header'
 
 function App() {
   const [picks, setPicks] = useState<Product[]>([]);
