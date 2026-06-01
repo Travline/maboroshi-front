@@ -6,6 +6,7 @@ import type { Product } from "./models/Card"
 import { Header } from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import { Collections } from './components/Collections/Collections'
+import { ToolbarModal } from './components/ToolbarModal/ToolbarModal'
 
 function App() {
   const [picks, setPicks] = useState<Product[]>([]);
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <Header />
+      <ToolbarModal />
       <main>
         <div>
           <Slider title="MABOROSHI COLLECTIONS" products={picks} />
