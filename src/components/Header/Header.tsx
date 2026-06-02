@@ -2,7 +2,7 @@ import styles from "./Header.module.css"
 import { Link } from "react-router-dom"
 
 const SmileyLogo = () => (
-  <h1 className={styles.smileyLogo} style={{ opacity: 1 }}>
+  <h1 className={[styles.smileyLogo, 'mab-link'].join(' ')}>
     <Link to={"/"} aria-label="logo">
       <svg width="763" height="754" viewBox="0 0 763 754" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>Smiley Logo</title>
@@ -55,13 +55,3 @@ export const Header = () => {
     </header>
   );
 };
-
-
-/* ESTRUCTURA DEL HEADER
-siteHeader
-└── siteHeaderInner 
-    ├── SiteBranding
-    │   └── GlobalSmiley
-    └── UtilityNav
-        └── SearchIcon      
-*/

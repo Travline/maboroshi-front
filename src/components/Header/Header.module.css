@@ -61,23 +61,13 @@
   padding: 0.5rem;
 }
 
-.searchIcon:hover,
-.smileyLogo a:hover {
-  opacity: 0.7;
-}
-
-.searchIcon,
-.smileyLogo a {
-  transition: opacity 0.1s linear;
-}
-
 .searchIcon > svg {
   width: 20px;
   height: 20px;
   fill: #fff;
 }
 
-/* Mobile Styles
+/* desktop Styles
 --------------------------------------------- */
 
 @media (min-width: 1024px) {
