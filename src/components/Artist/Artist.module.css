@@ -1,0 +1,59 @@
+.Section{
+    width: 100%;
+    margin-bottom: 3.125rem;
+
+}
+.Section h1{
+    font-size: 2em;
+    font-family: "Doto", sans-serif;
+}
+
+.ArtistContainer{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.Container{
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+.artistCard{
+    flex: 1;
+}
+
+.Image{
+    width: 100%;
+    height: 100%;
+}
+
+.AlbumsGrid{
+    flex: 1; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    position: relative;
+}
+
+.AlbumImage{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.AlbumsGrid button{
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.Name h2{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Doto", sans-serif;
+    text-transform: uppercase;
+}
+
+.Name h4{
+    font-size: 1em;
+    font-family: "Doto", sans-serif;
+}
