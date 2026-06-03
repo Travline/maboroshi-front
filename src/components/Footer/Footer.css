@@ -1,5 +1,5 @@
 .footer {
-    border-top: 1px solid #666;
+    /*(border-top: 1px solid #666; */
     padding: 20px 16px 0;
     background-color: var(--color-background);
     color: #fff
@@ -36,6 +36,7 @@
 
 .footer__social-links {
     display: flex;
+    align-items: center;
     justify-content: space-between
 }
 

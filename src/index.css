@@ -69,13 +69,16 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5
 }
 
 img,picture,video,canvas,svg {
   max-width: 100%;
   height: auto;
   display: block
+}
+
+audio,canvas,iframe,img,svg,video {
+  vertical-align: middle;
 }
 
 input,button,textarea,select {
@@ -131,6 +134,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   container-type: scroll-state;
+  line-height: 1.4;
   container-name: scroller;
   font-size: 62.5%
 }
@@ -175,7 +179,6 @@ body {
   align-items: center;
   font-family: plex-mono,monospace,sans-serif;
   font-size: 1.4rem;
-  line-height: 1.285;
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
