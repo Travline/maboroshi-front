@@ -26,6 +26,8 @@
   --medium-font-size: 1.25rem;
   --large-font-size: 1.56rem;
   --larger-font-size: 1.95rem;
+
+  --flow-gap-all: initial;
 }
 
 :root:not(.dark-mode),.light-mode {
@@ -184,11 +186,11 @@ body {
 }
 
 .text-bold {
-    font-weight: 700!important
+  font-weight: 700!important
 }
 
 .text-center {
-    text-align: center
+  text-align: center
 }
 
 .dot-array {
@@ -196,15 +198,15 @@ body {
 }
 
 .mab-link {
-    opacity: 1;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity .1s linear
+  opacity: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .1s linear
 }
 
 .mab-link:focus,.mab-link:hover {
-    opacity: .7;
-    outline: 0
+  opacity: .7;
+  outline: 0
 }
 
 .icon {

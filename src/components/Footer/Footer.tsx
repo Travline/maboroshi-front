@@ -53,7 +53,7 @@ export function Footer() {
         <a className="footer__policy-link mab-link nts-text-link" href="/terms-and-conditions">Terminos y Condiciones</a>
         <a className="footer__policy-link mab-link nts-text-link" href="/terms-and-conditions">libro de reclamaciones</a>
       </nav>
-      
+
     </footer>
   );
 }
