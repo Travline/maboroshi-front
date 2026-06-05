@@ -1,14 +1,14 @@
 import styles from "./Hero.module.css";
 import { useToolbarModalStore } from "../../hooks/ToolbarModalStore";
+import type { Product } from "../../models/Card";
 
-export const Hero = () => {
+interface Props {
+    album: Product;
+}
+
+export const Hero = ({ album }: Props) => {
 
     const { open } = useToolbarModalStore();
-
-    const currentAlbum = {
-        name: "OCTANE",
-        image: "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
-    };
 
     return (
         <section className={styles.hero}>
@@ -24,11 +24,12 @@ export const Hero = () => {
 
             <img
                 className={styles.albumImage}
-                src={currentAlbum.image}
+                src={album.image}
+                alt={album.name}
             />
 
             <p className={styles.albumTitle}>
-                {currentAlbum.name}
+                {album.name}
             </p>
 
             <button
