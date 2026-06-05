@@ -1,0 +1,36 @@
+.hero{
+    min-height: 100vh;
+    background: black;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+.album{
+    width:350px;
+    height:350px;
+
+    background:#111;
+
+    margin:2rem 0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.explore{
+    padding:1rem 3rem;
+
+    background:transparent;
+
+    border:1px solid white;
+
+    color:white;
+
+    cursor:pointer;
+}
