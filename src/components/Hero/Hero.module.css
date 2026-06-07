@@ -109,3 +109,22 @@
     height: auto;
     margin-bottom: 2rem;
 }
+
+.albumContainer{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:52rem;
+    overflow:hidden;
+}
+
+.sideAlbum{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    opacity:.3;
+    transition:.3s;
+    
+}
