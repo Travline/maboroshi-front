@@ -6,6 +6,7 @@ import { AuthModal } from './components/AuthModal/AuthModal.tsx'
 import { NotFound } from './components/404 ERROR/404 ERROR.tsx'
 import { LibroReclamaciones } from './pages/LibroReclamaciones.tsx'
 import { HomePage } from './pages/HomePage'
+import { ProductDetailPage } from './pages/ProductDetailPage.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <AuthModal /> },
       { path: "/oal", element: <Oal /> },
       { path: "/libro-reclamaciones", element: <LibroReclamaciones /> },
+      { path: "/products/:slug", element: <ProductDetailPage /> },
       { path: "*", element: <NotFound /> },
     ]
   }
