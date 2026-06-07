@@ -4,9 +4,20 @@ import type { Product } from "../../models/Card";
 
 interface Props {
     album: Product;
+    leftAlbum?: Product;
+    rightAlbum?: Product;
+
+    nextAlbum: () => void;
+    previousAlbum: () => void;
 }
 
-export const Hero = ({ album }: Props) => {
+export const Hero = ({
+    album,
+    leftAlbum,
+    rightAlbum,
+    nextAlbum,
+    previousAlbum
+}: Props) => {
 
     const { open } = useToolbarModalStore();
 
@@ -22,11 +33,32 @@ export const Hero = ({ album }: Props) => {
                 MABOROSHI RANDOM
             </h1>
 
-            <img
-                className={styles.albumImage}
-                src={album.image}
-                alt={album.name}
-            />
+            <div className={styles.albumContainer}>
+
+                {leftAlbum && (
+                    <img
+                        className={styles.sideAlbum}
+                        src={leftAlbum.image}
+                        alt={leftAlbum.name}
+                    />
+                )}
+
+                <img
+                    className={styles.albumImage}
+                    src={album.image}
+                    alt={album.name}
+                />
+
+                {rightAlbum && (
+                    <img
+                        onClick={nextAlbum}
+                        className={styles.sideAlbum}
+                        src={rightAlbum.image}
+                        alt={rightAlbum.name}
+                    />
+                )}
+
+            </div>
 
             <p className={styles.albumTitle}>
                 {album.name}

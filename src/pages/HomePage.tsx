@@ -8,6 +8,18 @@ import type { Product } from "../models/Card";
 export const HomePage = () => {
 
   const [products, setProducts] = useState<Product[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const nextAlbum = () => {
+    setCurrentIndex(
+      (prev) => (prev + 1) % products.length
+    );
+  };
+
+  const previousAlbum = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + products.length) % products.length
+    );
+  };
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -22,16 +34,52 @@ export const HomePage = () => {
     loadProducts();
   }, []);
 
+  useEffect(() => {
+
+    if (products.length === 0) return;
+
+    const interval = setInterval(() => {
+
+      setCurrentIndex((prev) =>
+        (prev + 1) % products.length
+      );
+
+    }, 5000);
+
+    return () => clearInterval(interval);
+
+  }, [products]);
+
   if (products.length === 0) {
     return <h1>Cargando...</h1>;
   }
 
-  const randomAlbum =
-    products[Math.floor(Math.random() * products.length)];
+
+
+  const currentAlbum = products[currentIndex];
+
+  const leftAlbum =
+    products[
+    (currentIndex - 1 + products.length) %
+    products.length
+    ];
+
+  const rightAlbum =
+    products[
+    (currentIndex + 1) %
+    products.length
+    ];
+
   return (
     <>
       <ToolbarModal />
-      <Hero album={randomAlbum} />
+      <Hero
+        album={currentAlbum}
+        leftAlbum={leftAlbum}
+        rightAlbum={rightAlbum}
+        nextAlbum={nextAlbum}
+        previousAlbum={previousAlbum}
+      />
     </>
   );
 };
