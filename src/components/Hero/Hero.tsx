@@ -37,6 +37,7 @@ export const Hero = ({
 
                 {leftAlbum && (
                     <img
+                        onClick={previousAlbum}
                         className={styles.sideAlbum}
                         src={leftAlbum.image}
                         alt={leftAlbum.name}
