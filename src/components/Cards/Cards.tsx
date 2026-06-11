@@ -1,5 +1,6 @@
 import styles from "./Cards.module.css"
 import type { Product } from "../../models/Card";
+import { Link } from "react-router-dom";
 
 interface props {
     product: Product;
@@ -8,7 +9,7 @@ interface props {
 export const Cards = ({ product }: props) => {
     return (
         <div className={styles.Card}>
-            <a href="">
+            <Link to={`/products/${product.slug}`}>
                 <div className={styles.ImgContainer}>
                     <img className={styles.ImgCard} src={product.image} alt="Loading..." />
                 </div>
@@ -31,7 +32,7 @@ export const Cards = ({ product }: props) => {
                         </div>
                     </div>
                 </div>
-            </a>
+            </Link>
         </div>
         
     )

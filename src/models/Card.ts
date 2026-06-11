@@ -4,4 +4,5 @@ export interface Product{
   artist: string;
   image: string;
   price: number;
+  slug: string;
 }

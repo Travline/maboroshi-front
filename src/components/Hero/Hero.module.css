@@ -1,1 +1,130 @@
-/*oal*/
+
+.title{
+    margin-bottom:2rem;
+}
+
+.cover{
+    width:350px;
+    height:350px;
+
+    object-fit:cover;
+}
+
+.albumName{
+    margin-top:1rem;
+}
+
+.explore{
+    margin-top:2rem;
+
+    padding:12px 40px;
+
+    background:transparent;
+
+    border:1px solid white;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+
+.exploreButton {
+    font-family: dot-array;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    padding: 1rem 3rem;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 100vh;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.heroTitle {
+    font-family: dot-array;
+    color: white;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.albumImage {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.albumTitle {
+    color: white;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.exploreButton {
+    margin-top: 2rem;
+
+    padding: 1rem 3rem;
+
+    background: transparent;
+    border: 1px solid white;
+
+    color: white;
+    font-family: dot-array;
+
+    cursor: pointer;
+}
+
+
+.exploreButton {
+    width: 180px;
+    height: 50px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,.6);
+
+    color: white;
+
+    font-family: dot-array;
+    font-size: .8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.albumContainer{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:52rem;
+    overflow:hidden;
+}
+
+.sideAlbum{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    opacity:.3;
+    transition:.3s;
+    
+}

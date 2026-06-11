@@ -188,7 +188,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
-  margin-top: 184px
+  margin-top: 0;
 }
 .caps {
   text-transform: uppercase
