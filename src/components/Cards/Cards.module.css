@@ -1,7 +1,5 @@
  .Card{
-    color: white;
-    min-width: calc((100% - 6.25rem )/5);
-    
+    min-width: calc((100% - 9.6rem )/5);
     text-align: left;
     position: relative;
 
@@ -36,9 +34,7 @@
 
 .ImgCard{
     width: 100%;
-    min-height: 22.375rem;
-    max-height: 22.375rem;
-    transition: filter 0.3s ease;
+    transition: filter 0.3s var(--ease-out-quart);
 }
 
 .Card:hover .ImgCard{
@@ -57,24 +53,26 @@
 .InfoCard{
     display: flex;
     flex-direction: column;
-    padding: .75rem;
-    gap: .75rem;
+    line-height: 1;
+    height: 6.4rem;
+    margin-top: 1.2rem;
+    justify-content: space-between;
     width: 100%;
 }
 
 .InfoCard h1{
-    font-size: .875em;
+    font-size: var(--cards-font-size);
     font-weight: bold;
 }
 
 .InfoCard h2{
-    font-size: .875em;
+    font-size: var(--cards-font-size);
+    font-weight: 400;
 }
 
 .PriceCard{
-    font-size: .875em;
-    font-weight: bold;
-    font-family: "Doto", sans-serif;
+    font-size: var(--cards-font-size);
+    font-weight: 400;
 }
 
 .ContainerHidden{
@@ -84,31 +82,31 @@
 .InteractionContainer{
     display: flex;
     width: 100%;
-    height: 4rem;
-    margin-top: .75rem;
-    margin-bottom: .75rem;
+    height: 6.4rem;
+    margin-top: 1.2rem;
     border: 1px solid #2B2B2B;
 }
 .Like, .Share{
    display: flex;
-   width: 4rem;
+   width: 6.4rem;
    justify-content: center;
    align-items: center;
    border: 1px solid #2B2B2B;
 }
 .Cart{
     display: flex;
-    width: 14.3125rem;
+    width: 22.9rem;
     justify-content: center;
     align-items: center;
     border: 1px solid #2B2B2B;
 }
 .Cart h2{
-    font-family: "Doto", sans-serif;
-    font-size: .875em;
+    font-size: var(--large-font-size);
+    font-weight: 400;
+    line-height: 1;
     text-align: center;
 }
 .like svg, .Share svg{
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 2rem;
+    width: 2rem;
 }

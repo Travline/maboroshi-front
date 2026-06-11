@@ -37,7 +37,7 @@ export const ArtistCard = ({ artist }: props) => {
                     </div>
                 ))}
             </div>
-            <button>Ver más</button>
+            <button className={styles.VerMas}>Ver más</button>
         </div>
     )
 }

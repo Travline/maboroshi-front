@@ -3,19 +3,18 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 4.8rem;
 }
 
 .Container h1{
-    font-size: 2em;
-    font-family: "Doto", sans-serif;
+    font-size: var(--section-title-font-size);
 }
 
 .CollectionsContainer{
     display: flex;
     width: 100%;
-    gap: 1.5rem;
-    padding-inline: 1.5rem;
+    gap: 2.4rem;
+    padding-inline: 2.4rem;
 }
 
 .Collection{
@@ -25,7 +24,7 @@
 }
 .Collection img{
     width: 100%;
-    height: 44rem;
+    height: 70.4rem;
     object-fit: contain;
     transition: all 0.3s ease;
 }
@@ -40,8 +39,7 @@
 }
 
 .CollectionTitle p{
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 1.5em; 
+    font-size: 2.4em;
     font-weight: bold;
 }
 .Collection:hover .CollectionTitle{
@@ -54,7 +52,7 @@
 
 @media (max-width: 1200px) {
     .Collection img{
-        height: 38rem;
+        height: 60.8rem;
     }
 }
 
@@ -64,7 +62,7 @@
     }
     
     .Collection img{
-        height: 34rem;
+        height: 54.4rem;
     }
 }
 
@@ -74,11 +72,11 @@
     }
 
     .Collection img{
-        height: 28rem;
+        height: 44.8rem;
     }
 
     .CollectionTitle p{
-        font-size: 1.2em;
+        font-size: 1.92em;
     }
     
     .CollectionTitle {
@@ -90,5 +88,3 @@
     }
 
 }
-
-

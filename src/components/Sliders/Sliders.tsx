@@ -44,7 +44,7 @@ export const Slider = ({ products, title }: props & { title: string }) => {
         <div className={styles.Slider}>
             <div className={styles.Tittle}>
                 <h1>{title}</h1>
-                <a href="">Ver todo &gt; </a>
+                <a href="" className=' dot-array'>Ver todo &gt; </a>
             </div>
 
             <div className={styles.ProductsContainer}>

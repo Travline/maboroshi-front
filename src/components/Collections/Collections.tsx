@@ -3,7 +3,7 @@ import styles from './Collections.module.css';
 export const Collections = () => {
     return (
         <div className={styles.Container}>
-            <h1>COLLECTIONS</h1>
+            <h1 className=' dot-array'>COLLECCIONES</h1>
             <div className={styles.CollectionsContainer}>
                     <div className={styles.Collection}>
                         <a href="">
