@@ -1,6 +1,6 @@
 import type { Product } from "../models/Card";
 
-const API_URL = "http://localhost:9090";
+const API_URL = "https://maboroshi-back.onrender.com";
 
 export async function getProducts(): Promise<Product[]> {
     const response = await fetch(
