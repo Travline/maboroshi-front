@@ -1,6 +1,6 @@
 import type { Product } from "../models/Card";
 
-const API_URL = "http://localhost:9090";
+const API_URL = "http://localhost:8080";
 
 export async function getProducts(): Promise<Product[]> {
     const response = await fetch(
@@ -41,7 +41,6 @@ export interface DetailedProductType {
 }
 
 export async function getProductDetail(slug: string): Promise<DetailedProductType> {
-
     const response = await fetch(`${API_URL}/v1/catalog/products/${slug}`);
 
     if (!response.ok) {
@@ -59,4 +58,46 @@ export async function getProductDetail(slug: string): Promise<DetailedProductTyp
         ...product,
         discount
     };
+}
+
+export async function getSaleProducts(): Promise<Product[]> {
+    const response = await fetch(
+        `${API_URL}/v1/catalog/products?status=sale`
+    );
+
+    if (!response.ok) {
+        throw new Error("Error obteniendo productos en oferta");
+    }
+
+    const data = await response.json();
+
+    return data.map((product: any) => ({
+        id: product.productId,
+        name: product.productName,
+        artist: product.artist,
+        image: product.images?.[0] ?? "",
+        price: product.salePrice,
+        slug: product.slug
+    }));
+}
+
+export async function getPresaleProducts(): Promise<Product[]> {
+    const response = await fetch(
+        `${API_URL}/v1/catalog/products?status=presale`
+    );
+
+    if (!response.ok) {
+        throw new Error("Error obteniendo productos presale");
+    }
+
+    const data = await response.json();
+
+    return data.map((product: any) => ({
+        id: product.productId,
+        name: product.productName,
+        artist: product.artist,
+        image: product.images?.[0] ?? "",
+        price: product.salePrice,
+        slug: product.slug
+    }));
 }
