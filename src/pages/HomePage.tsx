@@ -9,6 +9,15 @@ export const HomePage = () => {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      setCurrentIndex(
+        Math.floor(Math.random() * products.length)
+      );
+    }
+  }, [products]);
+
   const nextAlbum = () => {
     setCurrentIndex(
       (prev) => (prev + 1) % products.length

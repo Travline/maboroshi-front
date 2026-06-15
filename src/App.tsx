@@ -6,58 +6,70 @@ import { Collections } from './components/Collections/Collections'
 import { ArtistCard } from './components/Artist/Artist'
 import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
-import { getProducts } from "./api/products";
-
+import { getProducts, getSaleProducts, getPresaleProducts } from "./api/products";
 
 function App() {
   const [artist, setArtist] = useState<Artist[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
+  const [saleProducts, setSaleProducts] = useState<Product[]>([]);
+  const [presaleProducts, setPresaleProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadData = async () => {
-      const artistsData = await getArtist();
-      setArtist(artistsData);
-    };
-
-    loadData();
-    const loadProducts = async () => {
+    const loadAllData = async () => {
       try {
-        const data = await getProducts();
-        setProducts(data);
+        const [artistsData, productsData, saleData, presaleData] =
+          await Promise.all([
+            getArtist(),
+            getProducts(),
+            getSaleProducts(),
+            getPresaleProducts()
+          ]);
+
+        setArtist(artistsData);
+        setProducts(productsData);
+        setSaleProducts(saleData);
+        setPresaleProducts(presaleData);
+
       } catch (error) {
-        console.error(error);
+        console.error("Error cargando los datos de la app:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    loadProducts();
-
+    loadAllData();
   }, []);
-
 
   if (loading) {
     return <h1>Cargando productos...</h1>;
   }
+
   return (
     <>
       <main>
-        <div>
-          <Slider
-            title="MABOROSHI COLLECTIONS"
-            products={products}
-          />
+        <Slider
+          title="OFERTA"
+          products={saleProducts}
+        />
 
-          <Slider title="MABOROSHI PICKS" products={products} />
-        </div>
+        <Slider
+          title="PRE SALE"
+          products={presaleProducts}
+        />
 
         <Collections />
 
-        <div>
-          <Slider title="MABOROSHI COLLECTIONS" products={products} />
+        <Slider
+          title="RECIÉN LLEGADOS"
+          products={products}
+        />
 
-        </div>
+        <Slider
+          title="MABOROSHI PICKS"
+          products={products}
+        />
+
         <div>
           <ArtistCard artist={artist} />
         </div>
