@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import type { Product } from "./models/Card"
 import { Collections } from './components/Collections/Collections'
 import { ArtistCard } from './components/Artist/Artist'
-import { getArtists } from './api/artists'
+import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
 import { getProducts, getSaleProducts, getPresaleProducts } from "./api/products";
 
@@ -18,12 +18,13 @@ function App() {
   useEffect(() => {
     const loadAllData = async () => {
       try {
-        const [artistsData, productsData, saleData, presaleData] = await Promise.all([
-          getArtists(),
-          getProducts(),
-          getSaleProducts(),
-          getPresaleProducts()
-        ]);
+        const [artistsData, productsData, saleData, presaleData] =
+          await Promise.all([
+            getArtist(),
+            getProducts(),
+            getSaleProducts(),
+            getPresaleProducts()
+          ]);
 
         setArtist(artistsData);
         setProducts(productsData);
@@ -68,7 +69,7 @@ function App() {
           title="MABOROSHI PICKS"
           products={products}
         />
-        
+
         <div>
           <ArtistCard artist={artist} />
         </div>
