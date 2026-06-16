@@ -1,8 +1,9 @@
 import type { Product } from "../models/Card";
-const API_URL = "https://maboroshi-back.onrender.com";
+import { ENV } from "./environment";
+
 export async function getProducts(): Promise<Product[]> {
     const response = await fetch(
-        `${API_URL}/v1/catalog/products?order_by=date`
+        `${ENV.VITE_API_URL}/v1/catalog/products?order_by=date`
     );
 
     if (!response.ok) {
@@ -39,7 +40,7 @@ export interface DetailedProductType {
 }
 
 export async function getProductDetail(slug: string): Promise<DetailedProductType> {
-    const response = await fetch(`${API_URL}/v1/catalog/products/${slug}`);
+    const response = await fetch(`${ENV.VITE_API_URL}/v1/catalog/products/${slug}`);
 
     if (!response.ok) {
         throw new Error("No se pudo obtener el detalle del producto");
@@ -60,7 +61,7 @@ export async function getProductDetail(slug: string): Promise<DetailedProductTyp
 
 export async function getSaleProducts(): Promise<Product[]> {
     const response = await fetch(
-        `${API_URL}/v1/catalog/products?status=sale`
+        `${ENV.VITE_API_URL}/v1/catalog/products?status=sale`
     );
 
     if (!response.ok) {
@@ -81,7 +82,7 @@ export async function getSaleProducts(): Promise<Product[]> {
 
 export async function getPresaleProducts(): Promise<Product[]> {
     const response = await fetch(
-        `${API_URL}/v1/catalog/products?status=presale`
+        `${ENV.VITE_API_URL}/v1/catalog/products?status=presale`
     );
 
     if (!response.ok) {
