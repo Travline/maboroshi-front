@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AuthModal.module.css";
+import { ENV } from "../../api/environment";
 
 type View = "login" | "register" | "forgot";
-
-const BASE_URL = "https://maboroshi-back.onrender.com/v1";
 
 export const AuthModal = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ export const AuthModal = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch(`${BASE_URL}/auth/login`, {
+      const res = await fetch(`${ENV.VITE_API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -52,7 +51,7 @@ export const AuthModal = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch(`${BASE_URL}/auth/register`, {
+      const res = await fetch(`${ENV.VITE_API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
