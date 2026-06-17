@@ -1,0 +1,145 @@
+.accessibilityButton {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background: #111;
+    border: 1px solid #2b2b2b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+    transition: all 0.2s ease;
+}
+
+.accessibilityButton:hover {
+    transform: scale(1.05);
+    border-color: white;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .45);
+
+    display: flex;
+    justify-content: flex-end;
+
+    z-index: 1000;
+}
+
+.menu {
+    width: 360px;
+    height: 100vh;
+
+    background: #121212;
+    color: white;
+
+    padding: 1.5rem;
+
+    border-left: 1px solid #2c2c2c;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.closeButton {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    font-size: 2rem;
+    color: white;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+    border-color: #3a3a3a;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.option {
+    min-height: 110px;
+    border: 1px solid #2f2f2f;
+    background: linear-gradient(180deg,
+            #171717,
+            #111111);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+  border-color: #4a4a4a;
+  transform: translateY(-2px);
+}
+
+.icon {
+    font-size: 1.8rem;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 10px;
+}
+
+.progress span {
+    width: 18px;
+    height: 4px;
+    border-radius: 10px;
+    background: #3b3b3b;
+}
+
+.active {
+    background: white !important;
+}
+
+.accessibilityIcon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
