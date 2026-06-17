@@ -7,6 +7,7 @@ import { ArtistCard } from './components/Artist/Artist'
 import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
 import { getProducts, getSaleProducts, getPresaleProducts } from "./api/products";
+import { MaboroshiTopCard } from './components/MaboroshiTopCard/MaboroshiTopCard'
 
 function App() {
   const [artist, setArtist] = useState<Artist[]>([]);
@@ -48,6 +49,7 @@ function App() {
   return (
     <>
       <main>
+        <MaboroshiTopCard />
         <Slider
           title="OFERTA"
           products={saleProducts}
