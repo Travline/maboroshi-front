@@ -227,3 +227,52 @@ body {
 .icon:not(.icon--full-color) {
   fill: currentColor
 }
+
+.large-text {
+  font-size: 120%;
+}
+
+.large-text h1,
+.large-text h2,
+.large-text h3,
+.large-text p,
+.large-text span,
+.large-text button,
+.large-text a {
+  font-size: 1.15em !important;
+}
+
+.extra-spacing {
+  line-height: 2;
+}
+
+.contrast-medium {
+  filter: contrast(1.2);
+}
+
+.contrast-high {
+  filter: contrast(1.5) brightness(1.1);
+}
+
+.cursor-large,
+.cursor-large * {
+  cursor: url("/public/assets/cursor-large.png") 16 16, auto !important;
+}
+
+.dyslexia-font {
+  font-family: "Lexend", sans-serif !important;
+  letter-spacing: 0.08em;
+  word-spacing: 0.15em;
+  line-height: 1.8;
+}
+
+.dyslexia-font p,
+.dyslexia-font span,
+.dyslexia-font a,
+.dyslexia-font button,
+.dyslexia-font li,
+.dyslexia-font h1,
+.dyslexia-font h2,
+.dyslexia-font h3 {
+  letter-spacing: 0.05em;
+}
