@@ -1,3 +1,4 @@
+// src/App.tsx
 import './App.css'
 import { Slider } from './components/Sliders/Sliders'
 import { useState, useEffect } from 'react'
@@ -7,6 +8,7 @@ import { ArtistCard } from './components/Artist/Artist'
 import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
 import { getProducts, getSaleProducts, getPresaleProducts } from "./api/products";
+import { MaboroshiTopCard } from  './components/MaboroshiTopCard/MaboroshiTopCard'
 
 function App() {
   const [artist, setArtist] = useState<Artist[]>([]);
@@ -30,7 +32,6 @@ function App() {
         setProducts(productsData);
         setSaleProducts(saleData);
         setPresaleProducts(presaleData);
-
       } catch (error) {
         console.error("Error cargando los datos de la app:", error);
       } finally {
@@ -48,6 +49,8 @@ function App() {
   return (
     <>
       <main>
+        <MaboroshiTopCard />
+        
         <Slider
           title="OFERTA"
           products={saleProducts}
