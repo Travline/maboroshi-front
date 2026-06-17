@@ -1,4 +1,3 @@
-// src/App.tsx
 import './App.css'
 import { Slider } from './components/Sliders/Sliders'
 import { useState, useEffect } from 'react'
