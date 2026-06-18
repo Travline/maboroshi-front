@@ -37,6 +37,7 @@ export interface DetailedProductType {
     status: string;
     tracklist: string[];
     genres: string[];
+    spotifyId?: string;
 }
 
 export async function getProductDetail(slug: string): Promise<DetailedProductType> {
@@ -55,7 +56,8 @@ export async function getProductDetail(slug: string): Promise<DetailedProductTyp
 
     return {
         ...product,
-        discount
+        discount,
+        spotifyId: product.spotifyId ?? product.spotify_id 
     };
 }
 
