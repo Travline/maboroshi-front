@@ -1,0 +1,412 @@
+.cardContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000000;
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-block: 4rem;
+  font-family: 'dot-array', sans-serif;
+  z-index: 1;
+}
+
+.topTitle {
+  font-size: 50px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 5;
+  background-color: #000000;
+  padding-inline: 2rem;
+}
+
+.mainRow {
+  display: flex;
+  width: 100%;
+  height: 520px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mainRow::before,
+.mainRow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--border);
+  pointer-events: none;
+  transition: z-index 0.3s ease;
+}
+
+.mainRow::before {
+  top: calc(50% - 25px);
+}
+
+.mainRow::after {
+  top: calc(50% + 25px);
+}
+
+.showLinesBehind::before,
+.showLinesBehind::after {
+  z-index: 1;
+}
+
+.showLinesInFront::before,
+.showLinesInFront::after {
+  z-index: 3;
+}
+
+.imageContainer {
+  width: 520px;
+  height: 520px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.imageWrapper {
+  width: 520px;
+  height: 520px;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.blurred img {
+  filter: blur(2.5rem); 
+  opacity: 0.6;
+  transform: scale(1.1); 
+}
+
+.blurred {
+  box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.22);
+}
+
+.leftGroup, 
+.rightGroup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  width: calc(50vw - 260px);
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.leftGroup {
+  left: 0;
+  padding-left: 4rem;
+  padding-right: 3rem;
+}
+
+.rightGroup {
+  right: 0;
+  padding-left: 3rem;
+  padding-right: 4rem;
+}
+
+.sideLabel, 
+.detailTrigger {
+  pointer-events: auto;
+  font-family: 'dot-array', sans-serif;
+  font-size: var(--cards-font-size);
+  letter-spacing: 1px;
+  color: var(--foreground);
+  text-transform: uppercase;
+  background: #000000;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  z-index: 5;
+}
+
+.detailTrigger {
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: opacity 0.1s linear;
+}
+
+.detailTrigger:hover {
+  opacity: 0.7;
+}
+
+.tracklistPanel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  z-index: 4;
+  background-color: transparent;
+}
+
+.albumHeader {
+  margin-top: -65px; 
+  margin-bottom: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.albumHeader h2 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.albumHeader p {
+  font-size: var(--cards-font-size);
+  color: var(--foreground);
+  margin-top: 0.2rem;
+}
+
+.tracklistTitle {
+  font-size: var(--base-font-size);
+  letter-spacing: 2px;
+  margin-top: 2rem;
+  color: var(--foreground);
+  font-weight: 700;
+  display: block;
+}
+
+.tracksContainer {
+  width: 100%;
+  max-height: 900px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.tracksContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tracks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 2.2;
+  color: var(--foreground);
+  text-align: left;
+  min-width: 280px;
+}
+
+.tracks li {
+  margin-bottom: 0.4rem;
+  text-wrap: pretty;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.cartButton {
+  font-family: 'dot-array', sans-serif;
+  font-size: var(--base-font-size);
+  letter-spacing: 2px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border: 1px solid var(--border);
+  padding: 1.2rem 3rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+div.cardContainer button.cartButton.cartActive {
+  background-color: #ffffff ;
+  color: #000000;
+  border-color: #ffffff ;
+}
+
+.cartButton:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 1150px) {
+  .cardContainer {
+    padding-top: 18vh;
+    padding-bottom: 4rem;
+    justify-content: flex-start;
+    min-height: auto;
+  }
+
+  .topTitle {
+    font-size: 36px;
+    top: 4vh;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .mainRow {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    gap: 3rem;
+    padding: 0;
+  }
+
+  .mainRow::before,
+  .mainRow::after {
+    display: none ;
+  }
+
+  .imageContainer {
+    order: 1;
+    width: 100%;
+    max-width: 420px;
+    height: 420px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .leftGroup, 
+  .rightGroup {
+    position: relative;
+    width: 90%;
+    max-width: 420px;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    background-color: #000000;
+    margin: 0 auto;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
+
+  .leftGroup {
+    order: 2;
+  }
+
+  .rightGroup {
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .tracklistPanel {
+    position: relative;
+    padding: 2.5rem 0 1rem 0;
+    width: 90%;
+    max-width: 420px;
+    margin: 0 auto;
+    order: 4;
+    padding-left: 0;
+    padding-right: 0;
+    left: auto;
+    transform: none;
+  }
+
+  .albumHeader {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .albumHeader h2 {
+    font-size: 26px;
+  }
+
+  .tracklistTitle {
+    margin-top: 1.5rem;
+  }
+
+  .tracksContainer {
+    max-height: 280px;
+    width: 100%;
+  }
+
+  .tracks {
+    min-width: 100%;
+    padding-inline: 1rem;
+  }
+
+  .cartButton {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 3rem;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    order: 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContainer {
+    padding-top: 14vh;
+  }
+
+  .topTitle {
+    font-size: 26px;
+  }
+
+  .imageContainer {
+    max-width: 300px;
+    height: 300px;
+  }
+
+  .leftGroup, 
+  .rightGroup,
+  .tracklistPanel,
+  .cartButton {
+    max-width: 300px;
+    width: 92%;
+  }
+
+  .sideLabel, 
+  .detailTrigger {
+    font-size: 1.1rem;
+  }
+
+  .albumHeader h2 {
+    font-size: 22px;
+  }
+}
