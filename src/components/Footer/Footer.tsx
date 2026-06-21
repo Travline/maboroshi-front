@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type LinkItem = {
   label: string;
   href: string;
@@ -28,7 +30,7 @@ const legalLinks: LinkItem[] = [
   },
   {
     label: "libro de reclamaciones",
-    href: "https://blank",
+    href: "/libro-reclamaciones",
   },
 ];
 
@@ -38,19 +40,27 @@ function FooterLink({
   external = false,
   ariaLabel,
 }: LinkItem) {
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={ariaLabel}
+      >
+        {label}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       aria-label={ariaLabel}
-      {...(external
-        ? {
-            target: "_blank",
-            rel: "noopener noreferrer",
-          }
-        : {})}
     >
       {label}
-    </a>
+    </Link>
   );
 }
 
