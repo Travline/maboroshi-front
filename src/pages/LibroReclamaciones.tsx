@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./LibroReclamaciones.module.css";
+import { ENV } from "../api/environment";
 
 export const LibroReclamaciones = () => {
     const [fullName, setFullName] = useState("");
@@ -9,16 +10,11 @@ export const LibroReclamaciones = () => {
     const [complaintType, setComplaintType] = useState("");
     const [detail, setDetail] = useState("");
     const [expectedSolution, setExpectedSolution] = useState("");
-    
     const [loading, setLoading] = useState(false);
-    
     const [successMessage, setSuccessMessage] = useState("");
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
         setSuccessMessage("");
-
         if (dni.length !== 8) {
             alert("El DNI debe tener 8 dígitos");
             return;
@@ -33,7 +29,7 @@ export const LibroReclamaciones = () => {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/v1/complaints",
+                `${ENV.VITE_API_URL}/v1/complaints`,
                 {
                     method: "POST",
                     headers: {
@@ -124,8 +120,8 @@ export const LibroReclamaciones = () => {
 
                     <h2>Detalle</h2>
 
-                    <select 
-                        required 
+                    <select
+                        required
                         value={complaintType}
                         onChange={(e) => setComplaintType(e.target.value)}
                     >
