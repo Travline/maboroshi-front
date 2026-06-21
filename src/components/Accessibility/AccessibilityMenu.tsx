@@ -21,15 +21,16 @@ export const AccessibilityMenu = ({ isOpen, onClose }: Props) => {
     const root = document.documentElement;
 
     const scales = [
-      { base: "1rem", medium: "1.25rem", large: "1.56rem", larger: "1.95rem" },
-      { base: "1.1rem", medium: "1.35rem", large: "1.66rem", larger: "2.05rem" },
-      { base: "1.2rem", medium: "1.45rem", large: "1.76rem", larger: "2.15rem" },
-      { base: "1.3rem", medium: "1.55rem", large: "1.9rem", larger: "2.3rem" },
-      { base: "1.4rem", medium: "1.7rem", large: "2rem", larger: "2.5rem" }
+      { tiny: "0.9rem", base: "1rem", medium: "1.25rem", large: "1.56rem", larger: "1.95rem" },
+      { tiny: "1rem", base: "1.1rem", medium: "1.35rem", large: "1.66rem", larger: "2.05rem" },
+      { tiny: "1.1rem", base: "1.2rem", medium: "1.45rem", large: "1.76rem", larger: "2.15rem" },
+      { tiny: "1.2rem", base: "1.3rem", medium: "1.55rem", large: "1.9rem", larger: "2.3rem" },
+      { tiny: "1.3rem", base: "1.4rem", medium: "1.7rem", large: "2rem", larger: "2.5rem" }
     ];
 
     const current = scales[fontLevel];
 
+    root.style.setProperty("--tiny-font-size", current.tiny);
     root.style.setProperty("--base-font-size", current.base);
     root.style.setProperty("--medium-font-size", current.medium);
     root.style.setProperty("--large-font-size", current.large);
@@ -115,6 +116,7 @@ export const AccessibilityMenu = ({ isOpen, onClose }: Props) => {
     const root = document.documentElement;
 
     // Resetear fuentes
+    root.style.setProperty("--tiny-font-size", "0.9rem");
     root.style.setProperty("--base-font-size", "1rem");
     root.style.setProperty("--medium-font-size", "1.25rem");
     root.style.setProperty("--large-font-size", "1.56rem");
