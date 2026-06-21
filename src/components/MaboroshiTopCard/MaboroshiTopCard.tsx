@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./MaboroshiTopCard.module.css";
 import { ENV } from "../../api/environment";
+import { useNavigate } from "react-router-dom";
 
 interface DetailedProductType {
   productName: string;
@@ -13,6 +14,7 @@ interface DetailedProductType {
 }
 
 export const MaboroshiTopCard = () => {
+  const navigate = useNavigate();
   const [product, setProduct] = useState<DetailedProductType | null>(null);
   const [showDetails, setShowDetails] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -75,7 +77,15 @@ export const MaboroshiTopCard = () => {
         </div>
 
         <div className={styles.imageContainer}>
-          <div className={`${styles.imageWrapper} ${showDetails ? styles.blurred : ""}`}>
+          <div
+            className={`${styles.imageWrapper} ${showDetails ? styles.blurred : ""}`}
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              console.log("CLICK EN ALBUM");
+              console.log(product.slug);
+              navigate(`/products/${product.slug}`);
+            }}
+          >
             <img src={mainImage} alt={product.productName} />
           </div>
         </div>

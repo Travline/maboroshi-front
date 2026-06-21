@@ -1,6 +1,7 @@
 import styles from "./Hero.module.css";
 import { useToolbarModalStore } from "../../hooks/ToolbarModalStore";
 import type { Product } from "../../models/Card";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     album: Product;
@@ -19,6 +20,7 @@ export const Hero = ({
     previousAlbum
 }: Props) => {
 
+    const navigate = useNavigate();
     const { open } = useToolbarModalStore();
 
     return (
@@ -44,10 +46,13 @@ export const Hero = ({
                     />
                 )}
 
+                {/* Imagen principal actualizada con el cursor pointer */}
                 <img
                     className={styles.albumImage}
                     src={album.image}
                     alt={album.name}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate(`/products/${album.slug}`)}
                 />
 
                 {rightAlbum && (
