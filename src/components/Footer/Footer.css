@@ -16,6 +16,7 @@
 
 .site-footer {
 	--flow-gap: var(--space-07);
+	margin-top: 4rem;
 }
 
 .site-footer > * {

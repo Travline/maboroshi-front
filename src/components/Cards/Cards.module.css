@@ -30,17 +30,23 @@
 
 .ImgContainer{
     position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background-color: white;
 }
 
 .ImgCard{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: filter 0.3s var(--ease-out-quart);
 }
 
 .Card:hover .ImgCard{
-    filter: blur(5px);
+    filter: scale(1.03);
 }
-
 
 .Card:hover .ContainerHidden{
     display: block;

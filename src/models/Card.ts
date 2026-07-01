@@ -3,6 +3,7 @@ export interface Product{
   name: string;
   artist: string;
   image: string;
+  hoverImage: string;
   price: number;
   slug: string;
 }

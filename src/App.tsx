@@ -6,32 +6,37 @@ import { Collections } from './components/Collections/Collections'
 import { ArtistCard } from './components/Artist/Artist'
 import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
-import { getProducts, getSaleProducts, getPresaleProducts } from "./api/products";
+import { getProducts, getPresaleProducts, getOfertProducts, getLatestProducts, getPicksProducts } from "./api/products";
 import { MaboroshiTopCard } from './components/MaboroshiTopCard/MaboroshiTopCard'
 
 function App() {
   const [artist, setArtist] = useState<Artist[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
-  const [saleProducts, setSaleProducts] = useState<Product[]>([]);
+  const [ofertProducts, setOfertProducts] = useState<Product[]>([]);
   const [presaleProducts, setPresaleProducts] = useState<Product[]>([]);
+  const [latestProducts, setLatestProducts] = useState<Product[]>([]);
+  const [picksProducts, setPicksProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadAllData = async () => {
       try {
-        const [artistsData, productsData, saleData, presaleData] =
+        const [artistsData, productsData, ofertData, presaleData, latestData, picksData] =
           await Promise.all([
             getArtist(),
             getProducts(),
-            getSaleProducts(),
-            getPresaleProducts()
+            getOfertProducts(10),
+            getPresaleProducts(10),
+            getLatestProducts(10),
+            getPicksProducts()
           ]);
 
         setArtist(artistsData);
         setProducts(productsData);
-        setSaleProducts(saleData);
+        setOfertProducts(ofertData);
         setPresaleProducts(presaleData);
-
+        setLatestProducts(latestData);
+        setPicksProducts(picksData);
       } catch (error) {
         console.error("Error cargando los datos de la app:", error);
       } finally {
@@ -52,7 +57,7 @@ function App() {
         <MaboroshiTopCard />
         <Slider
           title="OFERTA"
-          products={saleProducts}
+          products={ofertProducts}
         />
 
         <Slider
@@ -64,12 +69,12 @@ function App() {
 
         <Slider
           title="RECIÉN LLEGADOS"
-          products={products}
+          products={latestProducts}
         />
 
         <Slider
           title="MABOROSHI PICKS"
-          products={products}
+          products={picksProducts}
         />
 
         <div>

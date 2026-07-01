@@ -1,17 +1,23 @@
 import styles from "./Cards.module.css"
 import type { Product } from "../../models/Card";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 interface props {
     product: Product;
 }
 
 export const Cards = ({ product }: props) => {
+const [hover, setHover] = useState(false);
+
     return (
-        <div className={styles.Card}>
+        <div className={styles.Card}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}>
             <Link to={`/products/${product.slug}`}>
                 <div className={styles.ImgContainer}>
-                    <img className={styles.ImgCard} src={product.image} alt="Loading..." />
+                    <img className={styles.ImgCard} src={hover ? product.hoverImage : product.image} alt="Loading..." />
                 </div>
                 <div className={styles.InfoCard}>
                     <h1>{product.name}</h1>

@@ -17,6 +17,7 @@ export async function getProducts(): Promise<Product[]> {
         name: product.productName,
         artist: product.artist,
         image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
         price: product.salePrice,
         slug: product.slug
     }));
@@ -33,6 +34,7 @@ export interface DetailedProductType {
     stock: number;
     slug: string;
     images: string[];
+    hoverImage: string;
     type: string;
     status: string;
     tracklist: string[];
@@ -77,12 +79,13 @@ export async function getSaleProducts(): Promise<Product[]> {
         name: product.productName,
         artist: product.artist,
         image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
         price: product.salePrice,
         slug: product.slug
     }));
 }
 
-export async function getPresaleProducts(): Promise<Product[]> {
+export async function getPresaleProducts(limit?: number): Promise<Product[]> {
     const response = await fetch(
         `${ENV.VITE_API_URL}/v1/catalog/products?status=presale`
     );
@@ -93,12 +96,107 @@ export async function getPresaleProducts(): Promise<Product[]> {
 
     const data = await response.json();
 
+    const products = data.map((product: any) => ({
+        id: product.productId,
+        name: product.productName,
+        artist: product.artist,
+        image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
+        price: product.salePrice,
+        slug: product.slug
+    }));
+
+    return limit ? products.slice(0, limit) : products;
+}
+
+export async function getOfertProducts(limit?: number): Promise<Product[]> {
+    const response = await fetch(
+        `${ENV.VITE_API_URL}/v1/catalog/products?order_by=discount`
+    );
+
+    if (!response.ok) {
+        throw new Error("Error obteniendo productos en oferta");
+    }
+
+    const data = await response.json();
+
+    const products = data.map((product: any) => ({
+        id: product.productId,
+        name: product.productName,
+        artist: product.artist,
+        image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
+        price: product.salePrice,
+        realPrice: product.realPrice,
+        slug: product.slug
+    }));
+
+    return limit ? products.slice(0, limit) : products;
+}
+
+export async function getLatestProducts(limit?: number): Promise<Product[]> {
+    const response = await fetch(
+        `${ENV.VITE_API_URL}/v1/catalog/products?order_by=date`
+    );
+
+    if (!response.ok) {
+        throw new Error("Error obteniendo productos recién llegados");
+    }
+
+    const data = await response.json();
+
+    const products = data.map((product: any) => ({
+        id: product.productId,
+        name: product.productName,
+        artist: product.artist,
+        image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
+        price: product.salePrice,
+        realPrice: product.realPrice,
+        slug: product.slug
+    }));
+
+    return limit ? products.slice(0, limit) : products;
+}
+
+export async function getPicksProducts(): Promise<Product[]> {
+    const response = await fetch(
+        `${ENV.VITE_API_URL}/v1/catalog/products/recommended`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify([
+                "DATA VINYL LIMITED EDITION",
+                "Nectar (Colored Vinyl) Vinyl 2LP",
+                "Felicilandia 2LP Vinyl",
+                "Sayonara Finales Alternos [2LP] (Silver Vinyl)",
+                "Thriller [LP]",
+                "Papota (Vinilo de color baby pink)",
+                "private music [LP - Fog]",
+                "OMAKASE VINYL LIMITED EDITION",
+                "Hybrid Theory [LP]",
+                "El Madrileño Vinilo"
+            ])
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("Error obteniendo productos MABOROSHI PICKS");
+    }
+
+    const data = await response.json();
+
     return data.map((product: any) => ({
         id: product.productId,
         name: product.productName,
         artist: product.artist,
         image: product.images?.[0] ?? "",
+        hoverImage: product.images?.[1] ?? product.images?.[0] ?? "",
         price: product.salePrice,
+        realPrice: product.realPrice,
         slug: product.slug
     }));
+
 }
