@@ -6,12 +6,11 @@ import { Collections } from './components/Collections/Collections'
 import { ArtistCard } from './components/Artist/Artist'
 import { getArtist } from './mocks/artist'
 import type { Artist } from './models/Artist'
-import { getProducts, getPresaleProducts, getOfertProducts, getLatestProducts, getPicksProducts } from "./api/products";
+import { getPresaleProducts, getOfertProducts, getLatestProducts, getPicksProducts } from "./api/products";
 import { MaboroshiTopCard } from './components/MaboroshiTopCard/MaboroshiTopCard'
 
 function App() {
   const [artist, setArtist] = useState<Artist[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
   const [ofertProducts, setOfertProducts] = useState<Product[]>([]);
   const [presaleProducts, setPresaleProducts] = useState<Product[]>([]);
   const [latestProducts, setLatestProducts] = useState<Product[]>([]);
@@ -21,10 +20,9 @@ function App() {
   useEffect(() => {
     const loadAllData = async () => {
       try {
-        const [artistsData, productsData, ofertData, presaleData, latestData, picksData] =
+        const [artistsData, ofertData, presaleData, latestData, picksData] =
           await Promise.all([
             getArtist(),
-            getProducts(),
             getOfertProducts(10),
             getPresaleProducts(10),
             getLatestProducts(10),
@@ -32,7 +30,6 @@ function App() {
           ]);
 
         setArtist(artistsData);
-        setProducts(productsData);
         setOfertProducts(ofertData);
         setPresaleProducts(presaleData);
         setLatestProducts(latestData);
