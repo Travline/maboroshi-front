@@ -39,7 +39,7 @@
 }
 
 .CollectionTitle p{
-    font-size: 2.4em;
+    font-size: var(--larger-font-size);
     font-weight: bold;
 }
 .Collection:hover .CollectionTitle{
