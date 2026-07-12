@@ -7,6 +7,7 @@ import { NotFound } from './components/404 ERROR/404 ERROR.tsx'
 import { LibroReclamaciones } from './pages/LibroReclamaciones.tsx'
 import { HomePage } from './pages/HomePage'
 import { ProductDetailPage } from './pages/ProductDetailPage.tsx'
+import { PaymentPage } from './pages/PaymentPage.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "/oal", element: <Oal /> },
       { path: "/libro-reclamaciones", element: <LibroReclamaciones /> },
       { path: "/products/:slug", element: <ProductDetailPage /> },
+      { path: "/payment", element: <PaymentPage /> },
       { path: "*", element: <NotFound /> },
     ]
   }
