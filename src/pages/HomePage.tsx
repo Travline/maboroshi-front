@@ -4,6 +4,7 @@ import { ToolBar } from "../components/ToolBar/ToolBar";
 import { useProducts } from "../hooks/useProducts";
 import styles from "./HomePage.module.css";
 import { NavDrawer } from "../components/NavDrawer/NavDrawer";
+import { NavCart } from "../components/NavCart/NavCart";
 
 export const HomePage = () => {
   const { products, isLoading, error } = useProducts();
@@ -39,6 +40,7 @@ export const HomePage = () => {
     <>
       <ToolBar />
       <NavDrawer/>
+      <NavCart/>
       <Hero
         album={currentAlbum}
         leftAlbum={leftAlbum}

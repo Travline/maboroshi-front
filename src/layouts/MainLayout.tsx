@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import { AccessibilityButton } from "../components/Accessibility/AccessibilityButton";
 import { AccessibilityMenu } from "../components/Accessibility/AccessibilityMenu";
 import { NavDrawer } from "../components/NavDrawer/NavDrawer";
+import { NavCart } from "../components/NavCart/NavCart";
 
 export const MainLayout = () => {
   const [accessibilityOpen, setAccessibilityOpen] = useState(false);
@@ -15,6 +16,7 @@ export const MainLayout = () => {
       <Header />
       <ToolBar />
       <NavDrawer />
+      <NavCart />
       <AccessibilityButton
         onClick={() => setAccessibilityOpen(true)}
       />

@@ -93,14 +93,14 @@ export function NavDrawer() {
       <footer className="nav-module__5O4h5a__drawerFooter">
 
         <button type="button" onClick={openInfo} className="nav-module__5O4h5a__drawerFooterButton" aria-label="Abrir info">
-          <span className="sr-only">favoritos</span>
+          <span className="sr-only"></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24">
               <path d="M16.77 3.88a4 4 0 014 4 3.81 3.81 0 01-.26 1.4 8.2 8.2 0 01-.82 1.37L12 18.56l-7.63-7.89a9.41 9.41 0 01-.83-1.39 3.83 3.83 0 01-.25-1.38 4 4 0 017.33-2.3l1.42 2 1.43-2a4 4 0 013.3-1.72m0-1.79A5.76 5.76 0 0012 4.57 5.76 5.76 0 001.54 7.9a5.56 5.56 0 00.37 2A11.57 11.57 0 003 11.82l9 9.27 9-9.27a11.57 11.57 0 001.12-1.88 5.81 5.81 0 00-5.41-7.82z"></path>
             </svg>
         </button>
 
         <a href="/login" target="_blank" rel="noopener noreferrer">
-          <span className="sr-only">perfil</span>
+          <span className="sr-only"></span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19.7274 20.4471C19.2716 19.1713 18.2672 18.0439 16.8701 17.2399C15.4729 16.4358 13.7611 16 12 16C10.2389 16 8.52706 16.4358 7.12991 17.2399C5.73276 18.0439 4.72839 19.1713 4.27259 20.4471" stroke="currentColor" strokeWidth="2" strokeLinecap="square"></path>
               <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"></circle>
@@ -108,7 +108,7 @@ export function NavDrawer() {
         </a>
 
         <button type="button" onClick={() => { openCart(); }} className="nav-module__5O4h5a__drawerFooterButton" aria-label="Abrir carrito">
-          <span className="sr-only">carrito</span>
+          <span className="sr-only"></span>
             <svg fill="currentColor" width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
               <circle cx="176" cy="416" r="32"></circle>
               <circle cx="400" cy="416" r="32"></circle>
