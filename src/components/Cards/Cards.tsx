@@ -3,13 +3,13 @@ import type { Product } from "../../models/Card";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-
-interface props {
+interface Props {
     product: Product;
+    viewMode: 'grid' | 'list';
 }
 
-export const Cards = ({ product }: props) => {
-const [hover, setHover] = useState(false);
+export const Cards = ({ product, viewMode }: Props) => {
+    const [hover, setHover] = useState(false);
 
     return (
         <div className={styles.Card}
