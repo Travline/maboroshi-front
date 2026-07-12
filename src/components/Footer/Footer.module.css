@@ -1,0 +1,109 @@
+.footer {
+    padding: 20px 16px 0;
+    background-blend-mode: difference;
+    color: var(--color-text);
+}
+
+.footerSocials {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.footerHomeLink {
+    padding: 0;
+}
+
+.footerLogo {
+    width: 130px;
+    color: transparent;
+}
+
+.footerBox {
+    flex-grow: 1;
+    padding: 16px 14px;
+    border: 1px solid var(--border);
+}
+
+.footerSocialsHeading {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0 6px;
+}
+
+.footerSocialLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerSocialLogo {
+    width: 40px;
+    fill: currentColor;
+}
+
+.footerSocialLogoDiscord {
+    padding: 7px 5px 3px;
+}
+
+.footerPolicyLinks {
+    font-size: 13px;
+    line-height: 18px;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footerPolicyLink {
+    border: none;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding-top: 20px;
+    }
+
+    .footerBox {
+        border: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footerSocials {
+        display: block;
+        width: 188px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .footerLogo img {
+        width: 50%;
+        height: auto;
+        margin-left: 50px;
+        display: block;
+    }
+
+    .footerSocialsHeading {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .footerSocialLogo {
+        width: 24px;
+    }
+
+    .footerSocialLogoDiscord {
+        padding: 4px;
+    }
+
+    .footerPolicyLinks {
+        font-size: 11px;
+        line-height: 11px;
+        padding-bottom: 32px;
+    }
+}

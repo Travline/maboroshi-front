@@ -1,13 +1,22 @@
-import { Header } from "../components/Header/Header";
+import SiteHeader from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import { ToolBar } from "../components/ToolBar/ToolBar";
+import { NavDrawer } from "../components/NavDrawer/NavDrawer";
+import { NavCart } from "../components/NavCart/NavCart";
+import { useOverlayLock } from "../hooks/useOverlayLock";
 import { Outlet } from "react-router-dom";
-import { Footer } from '../components/Footer/Footer'
 
 export const MainLayout = () => {
+  useOverlayLock();
+
   return (
     <>
-      <Header />
+      <SiteHeader />
       <Outlet />
+      <ToolBar />
+      <NavDrawer />
+      <NavCart />
       <Footer />
     </>
-  )
-}
+  );
+};
