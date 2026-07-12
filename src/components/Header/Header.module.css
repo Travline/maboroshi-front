@@ -1,88 +1,18 @@
-/* Header
---------------------------------------------- */
-.siteHeader {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 1rem;
-  background: black;
+.globalSmiley {
+    z-index: 6;
+    color: var(--foreground);
+    background-blend-mode: difference;
+    width: 5rem;
+    margin-left: -2.5rem;
+    position: fixed;
+    inset: 4rem auto auto 50%;
 }
-
-.siteHeaderInner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-
-.siteBranding {
-  display: flex;
-  justify-content: center;
-}
-
-.smileyLogo {
-  margin: 0;
-  width: 5rem;
-  margin-left: -2.5rem;
-}
-
-.smileyLogo svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.utilityNav {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.utilityNav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
-.searchIcon {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.searchIcon:hover,
-.smileyLogo a:hover {
-  opacity: 0.7;
-}
-
-.searchIcon,
-.smileyLogo a {
-  transition: opacity 0.1s linear;
-}
-
-.searchIcon > svg {
-  width: 20px;
-  height: 20px;
-  fill: #fff;
-}
-
-/* Mobile Styles
---------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .siteBranding {
-    inset: 3rem auto auto 50%;
-  }
-
-  .smileyLogo {
-    width: 6rem;
-    margin-left: 0;
-  }
+    .globalSmiley {
+        width: 6rem;
+        margin-left: -3rem;
+        inset: 3rem auto auto 50%;
+    }
 }
+
