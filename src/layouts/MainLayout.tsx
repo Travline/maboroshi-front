@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Header } from "../components/Header/Header";
+import Header from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
-import { ToolbarModal } from "../components/ToolbarModal/ToolbarModal";
+import { ToolBar } from "../components/ToolBar/ToolBar";
 import Footer from '../components/Footer/Footer';
 import { AccessibilityButton } from "../components/Accessibility/AccessibilityButton";
 import { AccessibilityMenu } from "../components/Accessibility/AccessibilityMenu";
+import { NavDrawer } from "../components/NavDrawer/NavDrawer";
+import { NavCart } from "../components/NavCart/NavCart";
 
 export const MainLayout = () => {
   const [accessibilityOpen, setAccessibilityOpen] = useState(false);
@@ -12,8 +14,9 @@ export const MainLayout = () => {
   return (
     <>
       <Header />
-      <ToolbarModal />
-      
+      <ToolBar />
+      <NavDrawer />
+      <NavCart />
       <AccessibilityButton
         onClick={() => setAccessibilityOpen(true)}
       />
