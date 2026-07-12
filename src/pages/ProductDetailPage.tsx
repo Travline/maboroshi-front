@@ -27,7 +27,10 @@ export const ProductDetailPage = () => {
                 setActiveImage(detailData.images?.[0] || "");
 
                 const allProducts = await getProducts();
-                setRecommended(allProducts.filter(p => p.id !== detailData.id).slice(0, 4));
+                const filtered = allProducts.filter(p => p.id !== detailData.id);
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                setRecommended(shuffled.slice(0, 4));
+                
             } catch (error) {
                 console.error("Error al cargar el detalle del disco:", error);
             } finally {
@@ -95,7 +98,6 @@ export const ProductDetailPage = () => {
 
                     <div className={styles.detailsBlock}>
                         <span className={styles.blockLabel}>PREVIEW</span>
-
                         {product.spotifyId ? (
                             <iframe
                                 data-testid="embed-iframe"
