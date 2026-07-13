@@ -1,8 +1,11 @@
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { ENV } from "../api/environment";
 import styles from "./CheckoutPage.module.css"
+import { useNavigate } from "react-router-dom";
 
 export const CheckoutPage = () => {
+  const navigate = useNavigate()
+
   initMercadoPago(ENV.VITE_MP_PUBLIC_KEY, {
     locale: "es-PE"
   })
@@ -24,6 +27,7 @@ export const CheckoutPage = () => {
           },
         }}
         onSubmit={async (paymentData) => {
+          navigate("/profile")
           console.log(paymentData)
         }}
       />

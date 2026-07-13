@@ -9,6 +9,7 @@ import { ProductDetailPage } from './pages/ProductDetailPage.tsx'
 import { PaymentPage } from './pages/PaymentPage.tsx'
 import { SearchPage } from './pages/SearchPage.tsx'
 import { CheckoutPage } from './pages/CheckoutPage'
+import { ProfilePage } from './pages/ProfilePage.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/store", element: <App /> },
       { path: "/login", element: <AuthModal /> },
+      { path: "/profile", element: <ProfilePage /> },
       { path: "/libro-reclamaciones", element: <LibroReclamaciones /> },
       { path: "/products/:slug", element: <ProductDetailPage /> },
       { path: "/payment", element: <PaymentPage /> },

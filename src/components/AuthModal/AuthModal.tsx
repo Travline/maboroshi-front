@@ -27,7 +27,7 @@ export const AuthModal = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch(`${ENV.VITE_API_URL}/auth/login`, {
+      const res = await fetch(`${ENV.VITE_API_URL}/v1/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -51,7 +51,7 @@ export const AuthModal = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch(`${ENV.VITE_API_URL}/auth/register`, {
+      const res = await fetch(`${ENV.VITE_API_URL}/v1/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -72,110 +72,110 @@ export const AuthModal = () => {
 
   return (
     <>
-    <div className={styles.page}>
-      <div className={styles.bg} />
+      <div className={styles.page}>
+        <div className={styles.bg} />
 
-      <div className={styles.box}>
-        <h2 className={styles.title}>SIGN UP / LOGIN</h2>
+        <div className={styles.box}>
+          <h2 className={styles.title}>SIGN UP / LOGIN</h2>
 
-        <div className={styles.tabs}>
-          <button
-            className={`${styles.tab} ${view === "login" ? styles.active : ""}`}
-            onClick={() => switchView("login")}
-          >
-            LOGIN
-          </button>
-          <button
-            className={`${styles.tab} ${view === "forgot" ? styles.active : ""}`}
-            onClick={() => switchView("forgot")}
-          >
-            FORGOT PASSOWRD?
-          </button>
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.tab} ${view === "login" ? styles.active : ""}`}
+              onClick={() => switchView("login")}
+            >
+              LOGIN
+            </button>
+            <button
+              className={`${styles.tab} ${view === "forgot" ? styles.active : ""}`}
+              onClick={() => switchView("forgot")}
+            >
+              FORGOT PASSOWRD?
+            </button>
+          </div>
+
+          {view === "login" && (
+            <div className={styles.form}>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>EMAIL ADRESS</label>
+                <input className={styles.input} type="email" value={email}
+                  onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>PASSOWRD</label>
+                <input className={styles.input} type="password" value={password}
+                  onChange={(e) => setPassword(e.target.value)} />
+                <span className={styles.hint}>
+                  AL MENOS 10 CARACTERES, UNA LETRA MAYÚSCULA, UNA LETRA MINÚSCULA Y UN NÚMERO.
+                </span>
+              </div>
+
+              {error && <span className={styles.hint}>{error}</span>}
+
+              <button className={styles.submitBtn} onClick={handleLogin} disabled={loading}>
+                {loading ? "INGRESANDO…" : "NEXT →"}
+              </button>
+              <button className={styles.switchLink} onClick={() => switchView("register")} type="button">
+                ¿NO TIENES CUENTA? REGISTRATE
+              </button>
+            </div>
+          )}
+
+          {view === "register" && (
+            <div className={styles.form}>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>NOMBRE DE USUARIO</label>
+                <input className={styles.input} type="text" value={username}
+                  onChange={(e) => setUsername(e.target.value)} />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>EMAIL ADRESS</label>
+                <input className={styles.input} type="email" value={email}
+                  onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>PASSOWRD</label>
+                <input className={styles.input} type="password" value={password}
+                  onChange={(e) => setPassword(e.target.value)} />
+                <span className={styles.hint}>
+                  AL MENOS 10 CARACTERES, UNA LETRA MAYÚSCULA, UNA LETRA MINÚSCULA Y UN NÚMERO.
+                </span>
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>CONFIRMAR PASSOWRD</label>
+                <input className={styles.input} type="password" value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)} />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>TELÉFONO</label>
+                <input className={styles.input} type="tel" value={phone}
+                  onChange={(e) => setPhone(e.target.value)} />
+              </div>
+
+              {error && <span className={styles.hint}>{error}</span>}
+
+              <button className={styles.submitBtn} onClick={handleRegister} disabled={loading}>
+                {loading ? "CREANDO CUENTA…" : "CREAR CUENTA →"}
+              </button>
+              <button className={styles.switchLink} onClick={() => switchView("login")} type="button">
+                ¿YA TIENES CUENTA? INICIÁ SESIÓN
+              </button>
+            </div>
+          )}
+
+          {view === "forgot" && (
+            <div className={styles.form}>
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>EMAIL ADRESS</label>
+                <input className={styles.input} type="email" value={email}
+                  onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <button className={styles.submitBtn} type="button">
+                ENVIAR LINK DE RESET →
+              </button>
+            </div>
+          )}
         </div>
-
-        {view === "login" && (
-          <div className={styles.form}>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>EMAIL ADRESS</label>
-              <input className={styles.input} type="email" value={email}
-                onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>PASSOWRD</label>
-              <input className={styles.input} type="password" value={password}
-                onChange={(e) => setPassword(e.target.value)} />
-              <span className={styles.hint}>
-                AL MENOS 10 CARACTERES, UNA LETRA MAYÚSCULA, UNA LETRA MINÚSCULA Y UN NÚMERO.
-              </span>
-            </div>
-
-            {error && <span className={styles.hint}>{error}</span>}
-
-            <button className={styles.submitBtn} onClick={handleLogin} disabled={loading}>
-              {loading ? "INGRESANDO…" : "NEXT →"}
-            </button>
-            <button className={styles.switchLink} onClick={() => switchView("register")} type="button">
-              ¿NO TIENES CUENTA? REGISTRATE
-            </button>
-          </div>
-        )}
-
-        {view === "register" && (
-          <div className={styles.form}>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>NOMBRE DE USUARIO</label>
-              <input className={styles.input} type="text" value={username}
-                onChange={(e) => setUsername(e.target.value)} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>EMAIL ADRESS</label>
-              <input className={styles.input} type="email" value={email}
-                onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>PASSOWRD</label>
-              <input className={styles.input} type="password" value={password}
-                onChange={(e) => setPassword(e.target.value)} />
-              <span className={styles.hint}>
-                AL MENOS 10 CARACTERES, UNA LETRA MAYÚSCULA, UNA LETRA MINÚSCULA Y UN NÚMERO.
-              </span>
-            </div>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>CONFIRMAR PASSOWRD</label>
-              <input className={styles.input} type="password" value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>TELÉFONO</label>
-              <input className={styles.input} type="tel" value={phone}
-                onChange={(e) => setPhone(e.target.value)} />
-            </div>
-
-            {error && <span className={styles.hint}>{error}</span>}
-
-            <button className={styles.submitBtn} onClick={handleRegister} disabled={loading}>
-              {loading ? "CREANDO CUENTA…" : "CREAR CUENTA →"}
-            </button>
-            <button className={styles.switchLink} onClick={() => switchView("login")} type="button">
-              ¿YA TIENES CUENTA? INICIÁ SESIÓN
-            </button>
-          </div>
-        )}
-
-        {view === "forgot" && (
-          <div className={styles.form}>
-            <div className={styles.fieldGroup}>
-              <label className={styles.label}>EMAIL ADRESS</label>
-              <input className={styles.input} type="email" value={email}
-                onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <button className={styles.submitBtn} type="button">
-              ENVIAR LINK DE RESET →
-            </button>
-          </div>
-        )}
       </div>
-    </div>
-      </>
+    </>
   );
 };
