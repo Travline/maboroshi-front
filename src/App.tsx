@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import type { Product } from "./models/Card"
 import { Collections } from './components/Collections/Collections'
 import { ArtistCard } from './components/Artist/Artist'
-import { getArtist } from './mocks/artist'
+import { getArtists, getProductsByArtist } from './api/artist'
 import type { Artist } from './models/Artist'
 import { getPresaleProducts, getOfertProducts, getLatestProducts, getPicksProducts } from "./api/products";
 import { MaboroshiTopCard } from './components/MaboroshiTopCard/MaboroshiTopCard'
@@ -22,7 +22,7 @@ function App() {
       try {
         const [artistsData, ofertData, presaleData, latestData, picksData] =
           await Promise.all([
-            getArtist(),
+            getArtists(),
             getOfertProducts(10),
             getPresaleProducts(10),
             getLatestProducts(10),
