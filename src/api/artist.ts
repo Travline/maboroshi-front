@@ -38,6 +38,7 @@ export async function getProductsByArtist(name: string): Promise<Album[]> {
         id: product.productId,
         name: product.productName,
         img: product.images?.[0] ?? "",
+        slug: product.slug
     }));
 }
     

@@ -2,7 +2,7 @@ export interface Album{
     id: string;
     name: string;
     img: string;
-    slug?: string;
+    slug: string;
 }
 
 
