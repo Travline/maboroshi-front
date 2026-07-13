@@ -22,9 +22,7 @@ export async function getArtists(): Promise<Artist[]> {
 
 export async function getProductsByArtist(name: string): Promise<Album[]> {
     const response = await fetch(
-        `${ENV.VITE_API_URL}/v1/catalog/artists/${encodeURIComponent(name)}/products`
-
-
+        `${ENV.VITE_API_URL}/v1/catalog/artists/products?name=${encodeURIComponent(name)}`
     );
 
     if (!response.ok) {
