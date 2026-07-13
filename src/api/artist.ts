@@ -17,14 +17,12 @@ export async function getArtists(): Promise<Artist[]> {
         name: artist.name,
         image: artist.image,
         albums: []
-    }));    
+    }));
 }
 
 export async function getProductsByArtist(name: string): Promise<Album[]> {
     const response = await fetch(
         `${ENV.VITE_API_URL}/v1/catalog/artists/${encodeURIComponent(name)}/products`
-
-
     );
 
     if (!response.ok) {
@@ -42,4 +40,3 @@ export async function getProductsByArtist(name: string): Promise<Album[]> {
         img: product.images?.[0] ?? "",
     }));
 }
-    
