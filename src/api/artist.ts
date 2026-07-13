@@ -39,8 +39,7 @@ export async function getProductsByArtist(name: string): Promise<Album[]> {
     return data.map((product: any) => ({
         id: product.productId,
         name: product.productName,
-        image: product.img?.[0] ?? "",
-        slug: product.slug
+        img: product.images?.[0] ?? "",
     }));
 }
     

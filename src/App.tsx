@@ -29,7 +29,19 @@ function App() {
             getPicksProducts()
           ]);
 
-        setArtist(artistsData);
+        const artistsWithAlbums = await Promise.all(
+          artistsData.map(async (art) => {
+            try {
+              const albums = await getProductsByArtist(art.name);
+              return { ...art, albums };
+            } catch (err) {
+              console.error(`Error loading albums for ${art.name}:`, err);
+              return art;
+            }
+          })
+        );
+
+        setArtist(artistsWithAlbums);
         setOfertProducts(ofertData);
         setPresaleProducts(presaleData);
         setLatestProducts(latestData);
