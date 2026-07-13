@@ -60,7 +60,6 @@ export const PaymentPage: React.FC = () => {
                 disableDefaultUI
                 center={selectedLocation}
                 zoom={zoom}
-                onCenterChanged={(ev) => setSelectedLocation(ev.detail.center)}
                 onZoomChanged={(ev) => setZoom(ev.detail.zoom)}
               >
                 <Marker position={selectedLocation} />
