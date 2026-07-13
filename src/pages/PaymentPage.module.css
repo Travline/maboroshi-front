@@ -1,0 +1,79 @@
+.container {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: background-color 1s var(--ease-out-quart), border 1s var(--ease-out-quart);
+}
+
+.title {
+  font-size: var(--larger-font-size);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-family: dot-array, monospace, sans-serif;
+  color: var(--foreground);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--tiny-font-size);
+  color: var(--color-text-2);
+}
+
+.input {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  transition: border-color 0.2s var(--ease-out-quart);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-line-2);
+}
+
+.mapContainer {
+  width: 100%;
+  height: 350px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.8rem;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1.6rem;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+  text-align: center;
+}
+
+.submitBtn:hover {
+  opacity: 0.8;
+}

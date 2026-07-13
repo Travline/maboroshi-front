@@ -27,7 +27,10 @@ export const ProductDetailPage = () => {
                 setActiveImage(detailData.images?.[0] || "");
 
                 const allProducts = await getProducts();
-                setRecommended(allProducts.filter(p => p.id !== detailData.id).slice(0, 4));
+                const filtered = allProducts.filter(p => p.id !== detailData.id);
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                setRecommended(shuffled.slice(0, 4));
+                
             } catch (error) {
                 console.error("Error al cargar el detalle del disco:", error);
             } finally {
@@ -84,10 +87,10 @@ export const ProductDetailPage = () => {
                     </div>
 
                     <div className={styles.actionsBar}>
-                        <button className={styles.actionBtn} aria-label="Añadir al carrito">+</button>
-                        <button className={styles.actionBtn} aria-label="Compartir">
+                        <a className={styles.actionBtn} aria-label="Añadir al carrito">+</a>
+                        <a className={styles.actionBtn} aria-label="Compartir">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg>
-                        </button>
+                        </a>
                         <button className={styles.infoBadgeBtn} onClick={() => setShowInfo(true)}>
                             INFO
                         </button>
@@ -95,7 +98,6 @@ export const ProductDetailPage = () => {
 
                     <div className={styles.detailsBlock}>
                         <span className={styles.blockLabel}>PREVIEW</span>
-
                         {product.spotifyId ? (
                             <iframe
                                 data-testid="embed-iframe"

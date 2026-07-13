@@ -1,5 +1,4 @@
 import styles from "./Hero.module.css";
-import { useToolbarModalStore } from "../../hooks/ToolbarModalStore";
 import type { Product } from "../../models/Card";
 import { useNavigate } from "react-router-dom";
 
@@ -21,7 +20,6 @@ export const Hero = ({
 }: Props) => {
 
     const navigate = useNavigate();
-    const { open } = useToolbarModalStore();
 
     return (
         <section className={styles.hero}>
@@ -70,12 +68,6 @@ export const Hero = ({
                 {album.name}
             </p>
 
-            <button
-                className={styles.exploreButton}
-                onClick={open}
-            >
-                EXPLORA
-            </button>
 
         </section>
     );

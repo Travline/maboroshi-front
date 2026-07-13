@@ -3,16 +3,17 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--site-top-bump) 2rem var(--space-07);
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--background);
+    color: var(--foreground);
     position: relative;
+    margin-top: 10rem;
 }
 
 .loading {
     font-family: "dot-array", monospace;
     text-align: center;
     padding: 10rem 2rem;
-    color: #ffffff;
+    color: var(--foreground);
 }
 
 .upperSection {
@@ -40,8 +41,8 @@
 .mainImageWrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
-    border: 1px solid #2B2B2B;
-    background-color: #ffffff;
+    border: 1px solid var(--border);
+    background-color: var(--background); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,8 +62,8 @@
 
 .thumbButton {
     aspect-ratio: 1 / 1;
-    border: 1px solid #2B2B2B;
-    background: none;
+    border: 1px solid var(--border);
+    background: var(--background);
     padding: 0;
     overflow: hidden;
     transition: border-color 0.2s;
@@ -75,7 +76,7 @@
 }
 
 .thumbActive {
-    border-color: #ffffff;
+    border-color: var(--foreground);
 }
 
 .infoColumn {
@@ -95,7 +96,7 @@
 
 .artistName {
     font-size: var(--base-font-size);
-    color: #888888;
+    color: var(--color-gray-dark); 
     margin-bottom: 1rem;
 }
 
@@ -108,7 +109,7 @@
 .actionsBar {
     display: flex;
     height: 4rem;
-    border: 1px solid #2B2B2B;
+    border: 1px solid var(--border); 
     align-items: center;
 }
 
@@ -118,18 +119,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid #2B2B2B;
-    color: #ffffff;
+    border-right: 1px solid var(--border);
+    color: var(--background);
+    background-color: var(--foreground);
     font-size: var(--large-font-size);
-    transition: background-color 0.2s;
+    border-radius: 0 !important;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.actionBtn stroke,
+.actionBtn fill,
+.actionBtn svg {
+    stroke: var(--background) !important;
+    color: var(--background) !important;
 }
 
 .actionBtn:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
-.infoBadge {
+.actionBtn:hover stroke,
+.actionBtn:hover fill,
+.actionBtn:hover svg {
+    stroke: var(--foreground) !important;
+    color: var(--foreground) !important;
+}
+
+.infoBadgeBtn {
     flex: 1;
     height: 100%;
     display: flex;
@@ -137,14 +155,22 @@
     justify-content: center;
     font-size: var(--base-font-size);
     letter-spacing: 2px;
-    color: #888888;
-    user-select: none;
+    color: var(--foreground);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.infoBadgeBtn:hover {
+    background-color: var(--foreground);
+    color: var(--background);
 }
 
 .detailsBlock {
-    border: 1px solid #2B2B2B;
+    border: 1px solid var(--border);
     padding: 2rem;
-    background-color: #030303;
+    background-color: var(--background);
     min-height: 250px;
     display: flex;
     flex-direction: column;
@@ -152,22 +178,21 @@
 
 .blockLabel {
     font-size: var(--tiny-font-size);
-    color: #666666;
+    color: var(--color-gray-dark);
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
     display: block;
 }
 
-
 .tracklist {
     padding-left: 2rem;
     font-size: var(--base-font-size);
     line-height: 1.8;
-    color: #dddddd;
+    color: var(--foreground);
 }
 
 .noDetails {
-    color: #555555;
+    color: var(--color-gray-dark);
     font-size: var(--base-font-size);
 }
 
@@ -181,11 +206,11 @@
 
 .genreTag {
     font-size: var(--tiny-font-size);
-    color: #555555;
+    color: var(--color-gray-dark);
 }
 
 .recommendedSection {
-    border-top: 1px solid #2B2B2B;
+    border-top: 1px solid var(--border);
     padding-top: 4rem;
     margin-top: 2rem;
 }
@@ -219,7 +244,7 @@
 
 .closeInfoBtn {
     background: transparent;
-    color: #ffffff;
+    color: var(--foreground);
     font-size: var(--large-font-size);
     border: none;
     cursor: pointer;
@@ -240,31 +265,12 @@
     pointer-events: none;
 }
 
-.infoBadgeBtn {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--base-font-size);
-    letter-spacing: 2px;
-    color: #888888;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.infoBadgeBtn:hover {
-    color: #ffffff;
-}
-
 .fullscreenTracks {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--background);
     z-index: 40;
     padding-top: 100px;
     display: flex;
@@ -276,7 +282,7 @@
 .fullscreenTracks .blockLabel {
     padding-left: 4rem;
     margin-bottom: 3rem;
-    color: #666666;
+    color: var(--color-gray-dark);
     font-family: 'dot-array', sans-serif;
     letter-spacing: 2px;
     font-size: var(--base-font-size);
@@ -294,20 +300,20 @@
 .tracklistExtended li {
     width: 100%;
     padding: 1.4rem 4rem;
-    border-bottom: 1px solid #2B2B2B;
+    border-bottom: 1px solid var(--border);
     font-family: 'plex-mono', monospace;
     font-size: var(--base-font-size);
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: var(--foreground);
 }
 
 .tracklistExtended li:first-child {
-    border-top: 1px solid #2B2B2B;
+    border-top: 1px solid var(--border);
 }
 
 .tracklistExtended .trackNumber {
-    color: #444444;
+    color: var(--color-gray-dark);
     margin-right: 0.8rem;
     display: inline-block;
     min-width: 2rem;

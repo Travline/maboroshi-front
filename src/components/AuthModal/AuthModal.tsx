@@ -176,13 +176,6 @@ export const AuthModal = () => {
         )}
       </div>
     </div>
-    <footer className={styles.loginFooter}>
-        <div className={styles.loginFooterBar}>
-          <span className={styles.loginSquare}></span>
-          <span className={styles.loginExplora}>EXPLORA</span>
-          <span className={styles.loginDots}>•••</span>
-        </div>
-      </footer>
       </>
   );
 };
