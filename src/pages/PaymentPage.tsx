@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, type FormEvent } from "react";
 import { APIProvider, Map, Marker, useMapsLibrary } from "@vis.gl/react-google-maps";
 import { ENV } from "../api/environment";
 import styles from "./PaymentPage.module.css";
+import { CardPayment, initMercadoPago } from "@mercadopago/sdk-react";
 
 interface Coordinates {
   lat: number;
@@ -14,7 +15,11 @@ interface PlaceAutocompleteInputProps {
 
 const DEFAULT_CENTER: Coordinates = { lat: -12.046374, lng: -77.042793 };
 
-export const PaymentPage: React.FC = () => {
+initMercadoPago(ENV.VITE_MP_PUBLIC_KEY, {
+  locale: "es-PE"
+})
+
+export const PaymentPage = () => {
   const [selectedLocation, setSelectedLocation] = useState<Coordinates>(DEFAULT_CENTER);
   const [zoom, setZoom] = useState<number>(14);
 
@@ -67,6 +72,13 @@ export const PaymentPage: React.FC = () => {
             </div>
           </div>
         </APIProvider>
+
+        <CardPayment
+          initialization={{ amount: 1.00 }}
+          onSubmit={async (param) => {
+            console.log(param);
+          }}
+        />
 
         <button type="submit" className={styles.submitBtn}>Ir a pagar</button>
       </form>
