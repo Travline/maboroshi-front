@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartStore } from "../../stores/cartStore";
 import { useUiStore } from "../../stores/uiStore";
 import "../ToolBar/ToolBar.css";
@@ -5,7 +6,7 @@ import "../ToolBar/ToolBar.css";
 function CloseIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12.0459 1.40075L10.6451 0L6.02295 4.62219L1.40075 0L0 1.40075L4.62219 6.02295L0 10.6451L1.40075 12.0459L6.02295 7.4237L10.6451 12.0459L12.0459 10.6451L7.4237 6.02295L12.0459 1.40075Z" fill="currentColor"/>
+      <path d="M12.0459 1.40075L10.6451 0L6.02295 4.62219L1.40075 0L0 1.40075L4.62219 6.02295L0 10.6451L1.40075 12.0459L6.02295 7.4237L10.6451 12.0459L12.0459 10.6451L7.4237 6.02295L12.0459 1.40075Z" fill="currentColor" />
     </svg>
   );
 }
@@ -13,7 +14,7 @@ function CloseIcon() {
 function BackIcon() {
   return (
     <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.441406 4.93262L4.93262 0.441406L5.375 -2.34949e-07L6.25879 0.883789L5.81738 1.32617L1.76855 5.375L5.81738 9.42383L6.25879 9.86621L5.375 10.75L4.93262 10.3086L0.441406 5.81738L-2.34949e-07 5.375L0.441406 4.93262Z" fill="currentColor"/>
+      <path d="M0.441406 4.93262L4.93262 0.441406L5.375 -2.34949e-07L6.25879 0.883789L5.81738 1.32617L1.76855 5.375L5.81738 9.42383L6.25879 9.86621L5.375 10.75L4.93262 10.3086L0.441406 5.81738L-2.34949e-07 5.375L0.441406 4.93262Z" fill="currentColor" />
     </svg>
   );
 }
@@ -37,7 +38,7 @@ export function NavCart() {
     <>
       <div className="nav-module__5O4h5a__infoPane" style={{ clipPath: isOpen ? "inset(0%)" : "inset(50% 0 50% 0)", transform: "none", pointerEvents: isOpen ? "auto" : "none", }} aria-hidden={!isOpen}>
         {/* Contenido del Carrito */}
-        <div data-content="cart" className="nav-module__5O4h5a__infoPaneContent" style={{ opacity: isCartOpen ? 1 : 0, display: isCartOpen ? "block" : "none",}}>
+        <div data-content="cart" className="nav-module__5O4h5a__infoPaneContent" style={{ opacity: isCartOpen ? 1 : 0, display: isCartOpen ? "block" : "none", }}>
           <div className="cart-module__fB9Kvq__cart">
             <div className="cart-module__fB9Kvq__cartHeader caps dot-array">
               {totalItems > 0 ? `CART (${totalItems})` : "CARRITO"}
@@ -52,7 +53,7 @@ export function NavCart() {
                   <div key={item.id} className="cart-module__fB9Kvq__cartItem caps dot-array">
 
                     <div className="cart-module__fB9Kvq__cartItemImage">
-                      <img alt={item.name} loading="lazy" width="80" height="80" src={item.imageUrl} style={{ color: "transparent" }}/>
+                      <img alt={item.name} loading="lazy" width="80" height="80" src={item.imageUrl} style={{ color: "transparent" }} />
                     </div>
 
                     <div className="cart-module__fB9Kvq__cartItemDetails">
@@ -83,7 +84,7 @@ export function NavCart() {
                 <span>S/.{totalPrice.toFixed(1)}</span>
               </div>
 
-              <a className="button-module__iDa5sG__button caps dot-array" href="/" target="_blank" rel="noopener noreferrer">Pagar ahora</a>
+              <Link className="button-module__iDa5sG__button caps dot-array" to="/payment" rel="noopener noreferrer">Pagar ahora</Link>
             </div>
 
             <button type="button" className="cart-module__fB9Kvq__cartDrawerClose" onClick={closeCart}>
@@ -94,11 +95,11 @@ export function NavCart() {
         </div>
 
         {/* Contenido de Info */}
-        <div data-content="info" className="nav-module__5O4h5a__infoPaneContent" style={{opacity: isInfoOpen ? 1 : 0,display: isInfoOpen ? "block" : "none",}}>
+        <div data-content="info" className="nav-module__5O4h5a__infoPaneContent" style={{ opacity: isInfoOpen ? 1 : 0, display: isInfoOpen ? "block" : "none", }}>
           <div className="cart-module__fB9Kvq__cart">
-            <div className="cart-module__fB9Kvq__cartHeader caps dot-array">Favoritos<button type="button" className="cart-module__fB9Kvq__closeButtonDesktop"onClick={closeInfo}aria-label="Close info">
-                <CloseIcon />
-              </button>
+            <div className="cart-module__fB9Kvq__cartHeader caps dot-array">Favoritos<button type="button" className="cart-module__fB9Kvq__closeButtonDesktop" onClick={closeInfo} aria-label="Close info">
+              <CloseIcon />
+            </button>
             </div>
 
             <div className="cart-module__fB9Kvq__cartMain" style={{ padding: "3rem 2rem", fontSize: "1.4rem" }}>
