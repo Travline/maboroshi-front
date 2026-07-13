@@ -8,6 +8,7 @@ import { HomePage } from './pages/HomePage'
 import { ProductDetailPage } from './pages/ProductDetailPage.tsx'
 import { PaymentPage } from './pages/PaymentPage.tsx'
 import { SearchPage } from './pages/SearchPage.tsx'
+import { CheckoutPage } from './pages/CheckoutPage'
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
       { path: "/libro-reclamaciones", element: <LibroReclamaciones /> },
       { path: "/products/:slug", element: <ProductDetailPage /> },
       { path: "/payment", element: <PaymentPage /> },
+      { path: "/payment/checkout", element: <CheckoutPage /> },
       { path: "/search", element: <SearchPage /> },
       { path: "*", element: <NotFound /> },
     ]
