@@ -1,4 +1,4 @@
-import { CardPayment, initMercadoPago } from "@mercadopago/sdk-react";
+import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { ENV } from "../api/environment";
 import styles from "./CheckoutPage.module.css"
 
@@ -9,10 +9,31 @@ export const CheckoutPage = () => {
 
   return (
     <div className={styles.checkoutContainer}>
-      <CardPayment
-        initialization={{ amount: 1.00 }}
-        onSubmit={async (param) => {
-          console.log(param);
+      <Payment
+        initialization={{
+          amount: 120.50,
+        }}
+        customization={{
+          paymentMethods: {
+            creditCard: "all",
+            debitCard: "all",
+            ticket: "all",
+            bankTransfer: "all",
+            atm: "all",
+            mercadoPago: "all",
+          },
+        }}
+        onSubmit={async ({ selectedPaymentMethod, formData }) => {
+          await fetch("/api/payments", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              selectedPaymentMethod,
+              formData,
+            }),
+          });
         }}
       />
     </div>
