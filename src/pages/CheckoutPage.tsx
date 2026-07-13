@@ -11,7 +11,7 @@ export const CheckoutPage = () => {
     <div className={styles.checkoutContainer}>
       <Payment
         initialization={{
-          amount: 120.50,
+          amount: 1.00,
         }}
         customization={{
           paymentMethods: {
@@ -23,17 +23,8 @@ export const CheckoutPage = () => {
             mercadoPago: "all",
           },
         }}
-        onSubmit={async ({ selectedPaymentMethod, formData }) => {
-          await fetch("/api/payments", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              selectedPaymentMethod,
-              formData,
-            }),
-          });
+        onSubmit={async (paymentData) => {
+          console.log(paymentData)
         }}
       />
     </div>
