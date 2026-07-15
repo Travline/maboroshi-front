@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ENV } from '../api/environment';
+import { MyPurchasesPage } from './MyPurchasesPage';
 
 export const ProfilePage = () => {
   const navigate = useNavigate();
@@ -34,8 +35,6 @@ export const ProfilePage = () => {
 
   // Si todo salió bien (status 200), renderiza el contenido normal
   return (
-    <div>
-      <h1>Perfil de Usuario</h1>
-    </div>
+    <MyPurchasesPage />
   );
 };
