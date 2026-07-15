@@ -1,57 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./MyPurchasesPage.module.css";
+import { ENV } from "../api/environment";
 
 // 1. Definición estricta de la estructura del ítem comprado
 interface PurchasedItem {
-  id: string;
+  productId: string;
   productName: string;
-  productSlug: string;
+  slug: string;
   productImage: string;
   quantity: number;
-  finalPrice: number; // Monto acumulado final por este item (ej: precio unitario * cantidad)
-  purchaseDate: string;
-  shippingAddress: string;
+  salePrice: number;
+  date: string;
+  adress: string;
 }
 
 // 2. Función asíncrona simulada para traer los datos del API
 // Reemplaza esta simulación con tu llamada real a tu servicio de backend/API
 const fetchPurchasedItems = async (): Promise<PurchasedItem[]> => {
   // Simular delay de red de 1 segundo
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const resApi = await fetch(`${ENV.VITE_API_URL}/v1/order`, {
+    method: "GET",
+    credentials: "include"
+  })
 
-  return [
-    {
-      id: "compra-101",
-      productName: "Teclado Mecánico Custom 60%",
-      productSlug: "teclado-mecanico-custom-60",
-      productImage: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=300&fit=crop",
-      quantity: 1,
-      finalPrice: 350.00,
-      purchaseDate: "2026-07-10",
-      shippingAddress: "Av. Larco 123, Miraflores, Lima"
-    },
-    {
-      id: "compra-102",
-      productName: "Mouse Pad Gamer XL (Negro)",
-      productSlug: "mouse-pad-gamer-xl-negro",
-      productImage: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300&h=300&fit=crop",
-      quantity: 2,
-      finalPrice: 90.00,
-      purchaseDate: "2026-07-10",
-      shippingAddress: "Av. Larco 123, Miraflores, Lima"
-    },
-    {
-      id: "compra-103",
-      productName: "Cable Aviador Tipo C Coiled",
-      productSlug: "cable-aviador-tipo-c-coiled",
-      productImage: "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=300&h=300&fit=crop",
-      quantity: 1,
-      finalPrice: 75.00,
-      purchaseDate: "2026-06-28",
-      shippingAddress: "Jr. Batallón Callao 456, Surco"
-    }
-  ];
+  const data = await resApi.json()
+
+  return data
 };
 
 export const MyPurchasesPage: React.FC = () => {
@@ -105,10 +80,10 @@ export const MyPurchasesPage: React.FC = () => {
       ) : (
         <div className={styles.list}>
           {purchases.map((item) => (
-            <div key={item.id} className={styles.item}>
+            <div key={item.productId} className={styles.item}>
 
               {/* Contenedor 1:1 rodeado por un Link para la imagen */}
-              <Link to={`/productos/${item.productSlug}`} className={styles.imageWrapper}>
+              <Link to={`/productos/${item.slug}`} className={styles.imageWrapper}>
                 <img
                   src={item.productImage}
                   alt={item.productName}
@@ -119,17 +94,17 @@ export const MyPurchasesPage: React.FC = () => {
 
               <div className={styles.info}>
                 {/* Nombre del producto envuelto en Link */}
-                <Link to={`/productos/${item.productSlug}`} className={styles.productLink}>
+                <Link to={`/productos/${item.slug}`} className={styles.productLink}>
                   {item.productName}
                 </Link>
 
                 <div className={styles.metadata}>
-                  <span><strong>Fecha:</strong> {item.purchaseDate}</span>
-                  <span><strong>Dirección de entrega:</strong> {item.shippingAddress}</span>
+                  <span><strong>Fecha:</strong> {item.date}</span>
+                  <span><strong>Dirección de entrega:</strong> {item.adress}</span>
                   <span><strong>Cantidad:</strong> {item.quantity} ud.</span>
 
                   <div className={styles.priceDetails}>
-                    Total: S/ {item.finalPrice.toFixed(2)}
+                    Total: S/ {item.salePrice.toFixed(2)}
                   </div>
                 </div>
               </div>

@@ -15,7 +15,10 @@ export const Cards = ({ product, viewMode = 'grid' }: Props) => {
     const { addItem } = useCartStore()
 
     async function addToCart() {
-        const res = await fetch(`${ENV.VITE_API_URL}/v1/cart/${product.id}`)
+        const res = await fetch(`${ENV.VITE_API_URL}/v1/cart/${product.id}`, {
+            method: "POST",
+            credentials: "include"
+        })
         const newItem = await res.json()
         addItem({
             id: newItem.id,
