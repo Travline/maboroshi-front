@@ -10,7 +10,10 @@ export const ProfilePage = () => {
   useEffect(() => {
     const checkAccess = async () => {
       try {
-        const response = await fetch(`${ENV.VITE_API_URL}/v1/auth/me`);
+        const response = await fetch(`${ENV.VITE_API_URL}/v1/auth/me`, {
+          method: 'GET', // o el método que corresponda
+          credentials: 'include' // 👈 CRUCIAL: Esto le dice al navegador que envíe la cookie
+        });
 
         // Si la respuesta es 200 OK
         if (response.status === 200) {
