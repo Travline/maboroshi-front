@@ -12,7 +12,7 @@
 .title {
   margin-bottom: 2.4rem;
   text-transform: uppercase;
-  font-family: plex-mono, monospace, sans-serif;
+  font-family: dot-array, monospace, sans-serif;
   color: var(--foreground);
 }
 
