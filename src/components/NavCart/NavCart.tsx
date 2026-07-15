@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../stores/cartStore";
 import { useUiStore } from "../../stores/uiStore";
 import "../ToolBar/ToolBar.css";
+import type { CartItem } from "../../models/CartItem";
 
 function CloseIcon() {
   return (
@@ -25,7 +27,10 @@ export function NavCart() {
   const closeCart = useUiStore((state) => state.closeCart);
   const closeInfo = useUiStore((state) => state.closeInfo);
 
+  // Zustand: Traemos las acciones e items que maneja tu store actual
   const items = useCartStore((state) => state.items);
+  const addItem = useCartStore((state) => state.addItem);
+  const clearCart = useCartStore((state) => state.clearCart);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const getTotalPrice = useCartStore((state) => state.getTotalPrice);
   const getTotalItems = useCartStore((state) => state.getTotalItems);
@@ -33,6 +38,50 @@ export function NavCart() {
   const isOpen = isCartOpen || isInfoOpen;
   const totalItems = getTotalItems();
   const totalPrice = getTotalPrice();
+
+  // useEffect que se conecta a la API y sincroniza con tu Zustand Store
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const response = await fetch("https://maboroshi-back.onrender.com/v1/cart", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Error al obtener la información del carrito");
+        }
+
+        const data = await response.json();
+
+        // Limpiamos el carrito local actual antes de poblarlo con los datos frescos del servidor
+        clearCart();
+
+        // Mapeamos los datos de la API e insertamos usando tu acción addItem
+        data.forEach((apiItem: any) => {
+          const cartProduct: CartItem = {
+            id: apiItem.productId,
+            productId: apiItem.productId,
+            name: apiItem.productName,
+            price: apiItem.salePrice,
+            quantity: apiItem.quantity,
+            imageUrl: `https://maboroshi-back.onrender.com/images/${apiItem.slug}.jpg`,
+            size: apiItem.size || undefined,
+          };
+
+          addItem(cartProduct);
+        });
+
+      } catch (error) {
+        console.error("Error al sincronizar el carrito:", error);
+      }
+    };
+
+    fetchCartItems();
+  }, [addItem, clearCart]); // Dependencias estables de Zustand
 
   return (
     <>
@@ -58,7 +107,7 @@ export function NavCart() {
 
                     <div className="cart-module__fB9Kvq__cartItemDetails">
 
-                      <div>{item.name}</div>{item.size && <div>{item.size}</div>}<div>${item.price.toFixed(1)}</div>
+                      <div>{item.name}</div>{item.size && <div>{item.size}</div>}<div>S/. {item.price.toFixed(1)}</div>
 
                       <div className="cart-module__fB9Kvq__quantitySelector">
 
@@ -103,7 +152,7 @@ export function NavCart() {
             </div>
 
             <div className="cart-module__fB9Kvq__cartMain" style={{ padding: "3rem 2rem", fontSize: "1.4rem" }}>
-              <div style={{ textTransform: "uppercase", marginBottom: "2rem" }} className="dot-array"> Articulos que te gustaron</div>
+              <div style={{ textTransform: "uppercase", marginBottom: "2rem" }} className="dot-array"> Artículos que te gustaron</div>
               <div style={{ opacity: 0.7, lineHeight: "1.6" }}>sapazo</div>
             </div>
 
